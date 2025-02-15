@@ -1,6 +1,6 @@
 export default {
   // baseURL: 'http://localhost:9000',
-  baseURL: 'https://atticaagoldbackend.onrender.com/',
+  baseURL: 'https://gold-new.onrender.com/',
   states: [
     'Andaman and Nicobar Islands',
     'Andhra Pradesh',

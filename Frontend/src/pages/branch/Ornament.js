@@ -4,27 +4,27 @@ import { forwardRef, useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
-    Backdrop,
-    Box,
-    Button,
-    Card,
-    Checkbox,
-    CircularProgress,
-    Container,
-    FormControl,
-    Grid,
-    Modal,
-    Paper,
-    Snackbar,
-    Stack,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TablePagination,
-    TableRow,
-    TextField,
-    Typography,
+  Backdrop,
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  CircularProgress,
+  Container,
+  FormControl,
+  Grid,
+  Modal,
+  Paper,
+  Snackbar,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TablePagination,
+  TableRow,
+  TextField,
+  Typography,
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import Dialog from '@mui/material/Dialog';
@@ -552,9 +552,13 @@ function Print({ data }) {
 
   useEffect(() => {
     getLatestPrint(data).then((data) => {
-      setOrnament(data.data);
+      if (data && data.status) {
+        setOrnament(data.data || []);
+      }
     });
   }, [data]);
+
+  const firstEntry = ornament?.[0];
 
   return (
     <>
@@ -567,9 +571,9 @@ function Print({ data }) {
         />
         <div style={{ display: 'block', textAlign: 'center', margin: '10px auto' }}>
           <span>
-            Gold Billing Company, {ornament[0]?.branch?.branchName ?? ''}
-            <br /> {ornament[0]?.branch?.address?.city ?? ''}, {ornament[0]?.branch?.address?.state ?? ''} -{' '}
-            {ornament[0]?.branch?.address?.pincode ?? ''}, {ornament[0]?.branch?.address?.landmark ?? ''}
+            Gold Billing Company, {firstEntry?.branch?.branchName ?? ''}
+            <br /> {firstEntry?.branch?.address?.city ?? ''}, {firstEntry?.branch?.address?.state ?? ''} -{' '}
+            {firstEntry?.branch?.address?.pincode ?? ''}, {firstEntry?.branch?.address?.landmark ?? ''}
           </span>
           <br />
           <br />
@@ -578,10 +582,10 @@ function Print({ data }) {
               <tbody>
                 <tr>
                   <td style={{ width: '50%' }}>
-                    <b>GST:</b> {ornament[0]?.branch?.gstNumber ?? ''}
+                    <b>GST:</b> {firstEntry?.branch?.gstNumber ?? ''}
                   </td>
                   <td style={{ width: '50%', textAlign: 'right' }}>
-                    <b>Date:</b> {ornament[0]?.movedAt ? moment(ornament[0]?.movedAt).format('DD MMM, YYYY') : ''}
+                    <b>Date:</b> {firstEntry?.movedAt ? moment(firstEntry?.movedAt).format('DD MMM, YYYY') : ''}
                     <br />
                     <b>Call:</b> 1234567890
                   </td>

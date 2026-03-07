@@ -6,6 +6,7 @@ const otpService = require("../../services/otp");
 const axios = require("axios");
 
 function login(req, res, next) {
+  console.log("login")
   passport.authenticate("local", { session: false }, (err, user, info) => {
     if (err || !user) {
       return res.status(400).json({
@@ -143,8 +144,9 @@ function verifyLoginOtp(req, res, next) {
 }
 
 function getUserType(req, res, next) {
+  console.log("Login")
   User.findOne({ username: req.body.username })
-    .then(async function (user) {
+  .then(async function (user) {
       if (!user) {
         const employee = await Employee.findOne({
           phoneNumber: req.body.username,

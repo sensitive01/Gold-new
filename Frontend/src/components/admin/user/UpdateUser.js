@@ -41,10 +41,15 @@ function UpdateUser(props) {
     initialValues: { ...initialValues },
     validationSchema: schema,
     onSubmit: (values) => {
-      if (values.userType === 'branch') {
-        values.username = employees.find((e) => e._id === values.employee)?.phoneNumber ?? null;
+      const payload = { ...values };
+      if (payload.userType === 'branch') {
+        payload.username = employees.find((e) => e._id === payload.employee)?.phoneNumber ?? null;
+      } else {
+        delete payload.branch;
+        payload.branch = null;
       }
-      updateUser(props.id, values).then((data) => {
+
+      updateUser(props.id, payload).then((data) => {
         if (data.status === false) {
           props.setNotify({
             open: true,

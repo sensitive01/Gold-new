@@ -50,19 +50,23 @@ function CreateUser(props) {
     },
     validationSchema: schema,
     onSubmit: (values) => {
-      if (values.userType === 'branch') {
-        values.username = employees.find((e) => e._id === values.employee)?.phoneNumber ?? null;
+      const payload = { ...values };
+      if (payload.userType === 'branch') {
+        payload.username = employees.find((e) => e._id === payload.employee)?.phoneNumber ?? null;
+      } else {
+        delete payload.branch;
       }
-      createUser(values).then((data) => {
+
+      createUser(payload).then((data) => {
         if (data.status === false) {
           props.setNotify({
             open: true,
-            message: 'User not created',
+            message: data.message || 'User not created',
             severity: 'error',
           });
         } else {
           props.setToggleContainer(false);
-          form.current.reset();
+          if (form.current) form.current.reset();
           resetForm();
           props.setNotify({
             open: true,

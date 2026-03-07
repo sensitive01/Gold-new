@@ -8,9 +8,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { PickersDay, StaticDatePicker } from '@mui/x-date-pickers';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { createLeave } from '../../../apis/branch/leave';
 import { createFile } from '../../../apis/branch/fileupload';
-import { getBranchByBranchId } from '../../../apis/branch/branch';
 import { getEmployee } from '../../../apis/branch/employee';
 
 const CustomPickersDay = styled(PickersDay, {
@@ -40,7 +40,7 @@ function CreateLeave(props) {
     getEmployee().then((data) => {
       setEmloyees(data.data);
     });
-  }, []);
+  }, [auth.user.branch]);
 
   // Form validation
   const schema = Yup.object({
@@ -133,7 +133,7 @@ function CreateLeave(props) {
                 }}
               >
                 {employees.map((e) => (
-                  <MenuItem value={e._id}>
+                  <MenuItem key={e._id} value={e._id}>
                     {e.employeeId} {e.name}
                   </MenuItem>
                 ))}
@@ -210,5 +210,10 @@ function CreateLeave(props) {
     </Card>
   );
 }
+
+CreateLeave.propTypes = {
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default CreateLeave;

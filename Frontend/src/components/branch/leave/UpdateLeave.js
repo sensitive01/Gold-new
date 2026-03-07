@@ -7,6 +7,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { PickersDay, StaticDatePicker } from '@mui/x-date-pickers';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import { getLeaveById, updateLeave } from '../../../apis/branch/leave';
 import { getEmployee } from '../../../apis/branch/employee';
 
@@ -129,7 +130,7 @@ function UpdateLeave(props) {
                 }}
               >
                 {employees.map((e) => (
-                  <MenuItem value={e._id}>{e.employeeId} {e.name}</MenuItem>
+                  <MenuItem key={e._id} value={e._id}>{e.employeeId} {e.name}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -192,5 +193,11 @@ function UpdateLeave(props) {
     </Card>
   );
 }
+
+UpdateLeave.propTypes = {
+  id: PropTypes.string,
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default UpdateLeave;

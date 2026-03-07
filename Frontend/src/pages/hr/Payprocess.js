@@ -4,27 +4,27 @@ import { forwardRef, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
-    Backdrop,
-    Box,
-    Button,
-    Card,
-    Checkbox,
-    CircularProgress,
-    Container,
-    IconButton,
-    MenuItem,
-    Modal,
-    Paper,
-    Popover,
-    Snackbar,
-    Stack,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TablePagination,
-    TableRow,
-    Typography,
+  Backdrop,
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  CircularProgress,
+  Container,
+  IconButton,
+  MenuItem,
+  Modal,
+  Paper,
+  Popover,
+  Snackbar,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TablePagination,
+  TableRow,
+  Typography,
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import moment from 'moment';
@@ -40,8 +40,8 @@ import { deletePayprocessById, getPayprocess } from '../../apis/hr/payprocess';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'employee', label: 'Employee Id', alignRight: false },
-  { id: 'employee', label: 'Employee Name', alignRight: false },
+  { id: 'employeeId', label: 'Employee Id', alignRight: false },
+  { id: 'name', label: 'Employee Name', alignRight: false },
   { id: 'type', label: 'Type', alignRight: false },
   { id: 'amount', label: 'Amount', alignRight: false },
   { id: 'note', label: 'Note', alignRight: false },
@@ -75,7 +75,7 @@ function applySortFilter(array, comparator, query) {
     return a[1] - b[1];
   });
   if (query) {
-    return filter(array, (row) => row.employee?.name.indexOf(query.toLowerCase()) !== -1);
+    return filter(array, (row) => (row.employee?.name || '').toLowerCase().indexOf(query.toLowerCase()) !== -1);
   }
   return stabilizedThis.map((el) => el[0]);
 }
@@ -245,179 +245,179 @@ export default function Payprocess() {
         </Alert>
       </Snackbar>
 
-      <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            Payprocess
-          </Typography>
-          <Button
-            variant="contained"
-            startIcon={<Iconify icon="eva:plus-fill" />}
-            onClick={() => {
-              setToggleContainer(!toggleContainer);
-              setToggleContainerType('create');
-            }}
-          >
-            New Payprocess
-          </Button>
-        </Stack>
+      {toggleContainer === false && (
+        <Container maxWidth="xl">
+          <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+            <Typography variant="h4" gutterBottom>
+              Payprocess
+            </Typography>
+            <Button
+              variant="contained"
+              startIcon={<Iconify icon="eva:plus-fill" />}
+              onClick={() => {
+                setToggleContainer(!toggleContainer);
+                setToggleContainerType('create');
+              }}
+            >
+              New Payprocess
+            </Button>
+          </Stack>
 
-        <Card>
-          <PayprocessListToolbar
-            numSelected={selected.length}
-            filterName={filterName}
-            onFilterName={handleFilterByName}
-            handleDelete={() => {
-              setDeleteType('selected');
-              handleOpenDeleteModal();
-            }}
-          />
+          <Card>
+            <PayprocessListToolbar
+              numSelected={selected.length}
+              filterName={filterName}
+              onFilterName={handleFilterByName}
+              handleDelete={() => {
+                setDeleteType('selected');
+                handleOpenDeleteModal();
+              }}
+            />
 
-          <Scrollbar>
-            <TableContainer sx={{ minWidth: 800 }}>
-              <Table>
-                <PayprocessListHead
-                  order={order}
-                  orderBy={orderBy}
-                  headLabel={TABLE_HEAD}
-                  rowCount={data.length}
-                  numSelected={selected.length}
-                  onRequestSort={handleRequestSort}
-                  onSelectAllClick={handleSelectAllClick}
-                />
-                <TableBody>
-                  {filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { _id, employee, type, amount, note, createdAt } = row;
-                    const selectedData = selected.indexOf(_id) !== -1;
+            <Scrollbar>
+              <TableContainer sx={{ minWidth: 800 }}>
+                <Table>
+                  <PayprocessListHead
+                    order={order}
+                    orderBy={orderBy}
+                    headLabel={TABLE_HEAD}
+                    rowCount={data.length}
+                    numSelected={selected.length}
+                    onRequestSort={handleRequestSort}
+                    onSelectAllClick={handleSelectAllClick}
+                  />
+                  <TableBody>
+                    {filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                      const { _id, employee, type, amount, note, createdAt } = row;
+                      const selectedData = selected.indexOf(_id) !== -1;
 
-                    return (
-                      <TableRow hover key={_id} tabIndex={-1} role="checkbox" selected={selectedData}>
-                        <TableCell padding="checkbox">
-                          <Checkbox checked={selectedData} onChange={(event) => handleClick(event, _id)} />
-                        </TableCell>
-                        <TableCell align="left">{employee?.employeeId}</TableCell>
-                        <TableCell align="left">{sentenceCase(employee?.name ?? '')}</TableCell>
-                        <TableCell align="left">{type}</TableCell>
-                        <TableCell align="left">{amount}</TableCell>
-                        <TableCell align="left">{note}</TableCell>
-                        <TableCell align="left">{moment(createdAt).format('YYYY-MM-DD HH:mm:ss')}</TableCell>
-                        <TableCell align="right">
-                          <IconButton
-                            size="large"
-                            color="inherit"
-                            onClick={(e) => {
-                              setOpenId(_id);
-                              handleOpenMenu(e);
+                      return (
+                        <TableRow hover key={_id} tabIndex={-1} role="checkbox" selected={selectedData}>
+                          <TableCell padding="checkbox">
+                            <Checkbox checked={selectedData} onChange={(event) => handleClick(event, _id)} />
+                          </TableCell>
+                          <TableCell align="left">{employee?.employeeId}</TableCell>
+                          <TableCell align="left">{sentenceCase(employee?.name ?? '')}</TableCell>
+                          <TableCell align="left">{type}</TableCell>
+                          <TableCell align="left">{amount}</TableCell>
+                          <TableCell align="left">{note}</TableCell>
+                          <TableCell align="left">{moment(createdAt).format('YYYY-MM-DD HH:mm:ss')}</TableCell>
+                          <TableCell align="right">
+                            <IconButton
+                              size="large"
+                              color="inherit"
+                              onClick={(e) => {
+                                setOpenId(_id);
+                                handleOpenMenu(e);
+                              }}
+                            >
+                              <Iconify icon={'eva:more-vertical-fill'} />
+                            </IconButton>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                    {emptyRows > 0 && (
+                      <TableRow style={{ height: 53 * emptyRows }}>
+                        <TableCell colSpan={6} />
+                      </TableRow>
+                    )}
+                    {filteredData.length === 0 && (
+                      <TableRow>
+                        <TableCell align="center" colSpan={11} sx={{ py: 3 }}>
+                          <Paper
+                            sx={{
+                              textAlign: 'center',
                             }}
                           >
-                            <Iconify icon={'eva:more-vertical-fill'} />
-                          </IconButton>
+                            <Typography paragraph>No data in table</Typography>
+                          </Paper>
                         </TableCell>
                       </TableRow>
-                    );
-                  })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: 53 * emptyRows }}>
-                      <TableCell colSpan={6} />
-                    </TableRow>
-                  )}
-                  {filteredData.length === 0 && (
-                    <TableRow>
-                      <TableCell align="center" colSpan={11} sx={{ py: 3 }}>
-                        <Paper
-                          sx={{
-                            textAlign: 'center',
-                          }}
-                        >
-                          <Typography paragraph>No data in table</Typography>
-                        </Paper>
-                      </TableCell>
-                    </TableRow>
-                  )}
-                </TableBody>
-
-                {filteredData.length > 0 && isNotFound && (
-                  <TableBody>
-                    <TableRow>
-                      <TableCell align="center" colSpan={11} sx={{ py: 3 }}>
-                        <Paper
-                          sx={{
-                            textAlign: 'center',
-                          }}
-                        >
-                          <Typography variant="h6" paragraph>
-                            Not found
-                          </Typography>
-
-                          <Typography variant="body2">
-                            No results found for &nbsp;
-                            <strong>&quot;{filterName}&quot;</strong>.
-                            <br /> Try checking for typos or using complete words.
-                          </Typography>
-                        </Paper>
-                      </TableCell>
-                    </TableRow>
+                    )}
                   </TableBody>
-                )}
-              </Table>
-            </TableContainer>
-          </Scrollbar>
 
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
-            component="div"
-            count={data.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </Card>
-      </Container>
+                  {filteredData.length > 0 && isNotFound && (
+                    <TableBody>
+                      <TableRow>
+                        <TableCell align="center" colSpan={11} sx={{ py: 3 }}>
+                          <Paper
+                            sx={{
+                              textAlign: 'center',
+                            }}
+                          >
+                            <Typography variant="h6" paragraph>
+                              Not found
+                            </Typography>
 
-      <Container
-        maxWidth="xl"
-        sx={{ display: toggleContainer === true && toggleContainerType === 'create' ? 'block' : 'none' }}
-      >
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            Create Payprocess
-          </Typography>
-          <Button
-            variant="contained"
-            startIcon={<Iconify icon="mdi:arrow-left" />}
-            onClick={() => {
-              setToggleContainer(!toggleContainer);
-            }}
-          >
-            Back
-          </Button>
-        </Stack>
+                            <Typography variant="body2">
+                              No results found for &nbsp;
+                              <strong>&quot;{filterName}&quot;</strong>.
+                              <br /> Try checking for typos or using complete words.
+                            </Typography>
+                          </Paper>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  )}
+                </Table>
+              </TableContainer>
+            </Scrollbar>
 
-        <CreatePayprocess setToggleContainer={setToggleContainer} setNotify={setNotify} />
-      </Container>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25]}
+              component="div"
+              count={data.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+          </Card>
+        </Container>
+      )}
 
-      <Container
-        maxWidth="xl"
-        sx={{ display: toggleContainer === true && toggleContainerType === 'update' ? 'block' : 'none' }}
-      >
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            Update Payprocess
-          </Typography>
-          <Button
-            variant="contained"
-            startIcon={<Iconify icon="mdi:arrow-left" />}
-            onClick={() => {
-              setToggleContainer(!toggleContainer);
-            }}
-          >
-            Back
-          </Button>
-        </Stack>
+      {toggleContainer === true && toggleContainerType === 'create' && (
+        <Container maxWidth="xl">
+          <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+            <Typography variant="h4" gutterBottom>
+              Create Payprocess
+            </Typography>
+            <Button
+              variant="contained"
+              startIcon={<Iconify icon="mdi:arrow-left" />}
+              onClick={() => {
+                setToggleContainer(!toggleContainer);
+              }}
+            >
+              Back
+            </Button>
+          </Stack>
 
-        <UpdatePayprocess setToggleContainer={setToggleContainer} id={openId} setNotify={setNotify} />
-      </Container>
+          <CreatePayprocess setToggleContainer={setToggleContainer} setNotify={setNotify} />
+        </Container>
+      )}
+
+      {toggleContainer === true && toggleContainerType === 'update' && (
+        <Container maxWidth="xl">
+          <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+            <Typography variant="h4" gutterBottom>
+              Update Payprocess
+            </Typography>
+            <Button
+              variant="contained"
+              startIcon={<Iconify icon="mdi:arrow-left" />}
+              onClick={() => {
+                setToggleContainer(!toggleContainer);
+              }}
+            >
+              Back
+            </Button>
+          </Stack>
+
+          <UpdatePayprocess setToggleContainer={setToggleContainer} id={openId} setNotify={setNotify} />
+        </Container>
+      )}
 
       <Popover
         open={Boolean(open)}

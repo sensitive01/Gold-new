@@ -4,28 +4,28 @@ import { forwardRef, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
-    Backdrop,
-    Box,
-    Button,
-    Card,
-    Checkbox,
-    CircularProgress,
-    Container,
-    IconButton,
-    MenuItem,
-    Modal,
-    Paper,
-    Popover,
-    Snackbar,
-    Stack,
-    Switch,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TablePagination,
-    TableRow,
-    Typography,
+  Backdrop,
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  CircularProgress,
+  Container,
+  IconButton,
+  MenuItem,
+  Modal,
+  Paper,
+  Popover,
+  Snackbar,
+  Stack,
+  Switch,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TablePagination,
+  TableRow,
+  Typography,
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import moment from 'moment';
@@ -72,7 +72,6 @@ function applySortFilter(array, comparator, query) {
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
-    console.log("oredr")
     if (order !== 0) return order;
     return a[1] - b[1];
   });
@@ -110,14 +109,7 @@ export default function Branch() {
     fetchData();
   }, [toggleContainer]);
 
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: moment()?.format("YYYY-MM-DD"),
-        $lte: moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
+  const fetchData = (query = {}) => {
     getBranch(query).then((data) => {
       setData(data.data);
       setOpenBackdrop(false);

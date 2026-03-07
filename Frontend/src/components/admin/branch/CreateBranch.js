@@ -62,7 +62,7 @@ function CreateBranch(props) {
             longitude: values.longitude,
             latitude: values.latitude,
           },
-          isHeadOffice: 'no',
+          isHeadOffice: values.isHeadOffice,
           status: 'active',
         };
         createBranch(payload).then((data) => {
@@ -73,7 +73,7 @@ function CreateBranch(props) {
               severity: 'error',
             });
           } else {
-            if (values.image) {
+            if (values.image instanceof File) {
               const formData = new FormData();
               formData.append('uploadId', data.data.fileUpload.uploadId);
               formData.append('uploadName', data.data.fileUpload.uploadName);

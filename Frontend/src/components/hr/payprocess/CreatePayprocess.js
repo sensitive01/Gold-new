@@ -14,7 +14,9 @@ function CreatePayprocess(props) {
 
   useEffect(() => {
     getEmployee().then((data) => {
-      setEmloyees(data.data);
+      if (data?.data) {
+        setEmloyees(data.data);
+      }
     });
   }, []);
 
@@ -25,17 +27,21 @@ function CreatePayprocess(props) {
     amount: Yup.string().required('Amount is required'),
   });
 
-  const { handleSubmit, handleChange, handleBlur, touched, errors, values, setValues, resetForm } = useFormik({
+  const { handleSubmit, handleChange, handleBlur, touched, errors, values, setValues, setFieldValue, resetForm } = useFormik({
     initialValues: {
       employee: '',
       type: '',
       amount: '',
       note: '',
-      loggedUsername: auth.user.employee.name,
+      loggedUsername: auth?.user?.employee?.name || auth?.user?.name || auth?.user?.username || '',
     },
     validationSchema: schema,
     onSubmit: (values) => {
-      createPayprocess(values).then((data) => {
+      const payload = {
+        ...values,
+        loggedUsername: values.loggedUsername || auth?.user?.employee?.name || auth?.user?.name || auth?.user?.username || '',
+      };
+      createPayprocess(payload).then((data) => {
         if (data.status === false) {
           props.setNotify({
             open: true,
@@ -55,6 +61,15 @@ function CreatePayprocess(props) {
       });
     },
   });
+
+  useEffect(() => {
+    if (!values.loggedUsername) {
+      const name = auth?.user?.employee?.name || auth?.user?.name || auth?.user?.username;
+      if (name) {
+        setFieldValue('loggedUsername', name);
+      }
+    }
+  }, [auth, setFieldValue, values.loggedUsername]);
 
   return (
     <Card sx={{ p: 4, my: 4 }}>
@@ -78,8 +93,7 @@ function CreatePayprocess(props) {
                 value={values.employee}
                 onBlur={handleBlur}
                 onChange={(e) => {
-                  setValues({ ...values, employee: e.target.value });
-                  handleChange(e);
+                  setFieldValue('employee', e.target.value);
                 }}
               >
                 {employees.map((e) => (
@@ -101,8 +115,7 @@ function CreatePayprocess(props) {
                 value={values.type}
                 onBlur={handleBlur}
                 onChange={(e) => {
-                  setValues({ ...values, type: e.target.value });
-                  handleChange(e);
+                  setFieldValue('type', e.target.value);
                 }}
               >
                 <MenuItem value="allowances">Allowances</MenuItem>

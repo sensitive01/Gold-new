@@ -80,7 +80,9 @@ function UpdateBranch(props) {
               formData.append('uploadType', 'image');
               formData.append('uploadedFile', values.image);
               createFile(formData).then((res) => {
-                deleteFileById(values.oldImage._id);
+                if (values.oldImage?._id) {
+                  deleteFileById(values.oldImage._id);
+                }
               });
             }
             props.setToggleContainer(false);
@@ -99,21 +101,24 @@ function UpdateBranch(props) {
     resetForm();
     if (props.id) {
       getBranchById(props.id).then((data) => {
-        setValues({
-          branchId: data.data.branchId ?? '',
-          branchName: data.data.branchName ?? '',
-          gstNumber: data.data.gstNumber ?? '',
-          address: data.data.address?.address ?? '',
-          area: data.data.address?.area ?? '',
-          city: data.data.address?.city ?? '',
-          state: data.data.address?.state ?? '',
-          pincode: data.data.address?.pincode ?? '',
-          landmark: data.data.address?.landmark ?? '',
-          longitude: data.data.address?.longitude ?? '',
-          latitude: data.data.address?.latitude ?? '',
-          isHeadOffice: data.data.isHeadOffice ?? '',
-          oldImage: data.data.image ?? '',
-        });
+        if (data && data.status) {
+          setValues({
+            branchId: data.data.branchId ?? '',
+            branchName: data.data.branchName ?? '',
+            gstNumber: data.data.gstNumber ?? '',
+            address: data.data.address?.address ?? '',
+            area: data.data.address?.area ?? '',
+            city: data.data.address?.city ?? '',
+            state: data.data.address?.state ?? '',
+            pincode: data.data.address?.pincode ?? '',
+            landmark: data.data.address?.landmark ?? '',
+            longitude: data.data.address?.longitude ?? '',
+            latitude: data.data.address?.latitude ?? '',
+            isHeadOffice: data.data.isHeadOffice || 'no',
+            oldImage: data.data.image || {},
+            image: {},
+          });
+        }
       });
     }
   }, [props.id]);
@@ -157,7 +162,7 @@ function UpdateBranch(props) {
               fullWidth
               onBlur={handleBlur}
               onChange={(e) => {
-                setValues({ ...values, image: e.target.files[0] });
+                setFieldValue('image', e.target.files[0], true);
               }}
             />
           </Grid>

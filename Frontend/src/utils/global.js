@@ -94,7 +94,7 @@ export default {
       'Agartala|Dhalaighat|Kailashahar|Kamalpur|Kanchanpur|Kel Sahar Subdivision|Khowai|Khowaighat|Mahurighat|Old Raghna Bazar|Sabroom|Srimantapur',
     'Uttar Pradesh':
       'Agra|Allahabad|Auraiya|Banbasa|Bareilly|Berhni|Bhadohi|Dadri|Dharchula|Gandhar|Gauriphanta|Ghaziabad|Gorakhpur|Gunji|Jarwa|Jhulaghat (Pithoragarh)|Kanpur|Katarniyaghat|Khunwa|Loni|Lucknow|Meerut|Moradabad|Muzaffarnagar|Nepalgunj Road|Pakwara (Moradabad)|Pantnagar|Saharanpur|Sonauli|Surajpur|Tikonia|Varanasi',
-    Uttarakhand:
+    Uttaranchal:
       'Almora|Badrinath|Bangla|Barkot|Bazpur|Chamoli|Chopra|Dehra Dun|Dwarahat|Garhwal|Haldwani|Hardwar|Haridwar|Jamal|Jwalapur|Kalsi|Kashipur|Mall|Mussoorie|Nahar|Naini|Pantnagar|Pauri|Pithoragarh|Rameshwar|Rishikesh|Rohni|Roorkee|Sama|Saur',
     'West Bengal':
       'Alipurduar|Bankura|Bardhaman|Birbhum|Cooch Behar|Dakshin Dinajpur|Darjeeling|Hooghly|Howrah|Jalpaiguri|Kolkata|Maldah|Murshidabad|Nadia|North 24 Parganas|Paschim Medinipur|Purba Medinipur|Purulia|South 24 Parganas|Uttar Dinajpur',

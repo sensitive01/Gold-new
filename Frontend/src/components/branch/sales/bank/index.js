@@ -29,6 +29,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 import Iconify from '../../../iconify';
 import Scrollbar from '../../../scrollbar';
 import { getBankById, createBank, deleteBankById } from '../../../../apis/branch/customer-bank';
@@ -417,5 +418,21 @@ function Bank({ setNotify, selectedUser, selectedBank, setSelectedBank }) {
     </>
   );
 }
+
+Bank.propTypes = {
+  setNotify: PropTypes.func,
+  selectedUser: PropTypes.shape({
+    _id: PropTypes.string,
+  }),
+  selectedBank: PropTypes.shape({
+    _id: PropTypes.string,
+    accountNo: PropTypes.string,
+    bankName: PropTypes.string,
+    accountHolderName: PropTypes.string,
+    branch: PropTypes.string,
+    ifscCode: PropTypes.string,
+  }),
+  setSelectedBank: PropTypes.func,
+};
 
 export default Bank;

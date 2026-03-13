@@ -27,6 +27,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import { useEffect, useState } from 'react';
 import Iconify from '../../../iconify';
+import PropTypes from 'prop-types';
 import Scrollbar from '../../../scrollbar';
 
 const style = {
@@ -408,5 +409,14 @@ function Ornament({ setNotify, ornaments, setOrnaments, goldRate, silverRate, pu
     </>
   );
 }
+
+Ornament.propTypes = {
+  setNotify: PropTypes.func,
+  ornaments: PropTypes.array,
+  setOrnaments: PropTypes.func,
+  goldRate: PropTypes.number,
+  silverRate: PropTypes.number,
+  purchaseType: PropTypes.string,
+};
 
 export default Ornament;

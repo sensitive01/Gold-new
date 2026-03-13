@@ -33,12 +33,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import Iconify from '../../../iconify';
 import { getReleaseByCustomerId, createRelease, deleteReleaseById } from '../../../../apis/branch/release';
 import Scrollbar from '../../../scrollbar';
 import Bank from '../bank';
 import { createFile } from '../../../../apis/branch/fileupload';
-import { getBranchByBranchId } from '../../../../apis/branch/branch';
+// import { getBranchByBranchId } from '../../../../apis/branch/branch';
 
 const style = {
   position: 'absolute',
@@ -518,5 +519,12 @@ function Release({ setNotify, selectedUser, selectedRelease, setSelectedRelease 
     </>
   );
 }
+
+Release.propTypes = {
+  setNotify: PropTypes.func,
+  selectedUser: PropTypes.object,
+  selectedRelease: PropTypes.array,
+  setSelectedRelease: PropTypes.func,
+};
 
 export default Release;

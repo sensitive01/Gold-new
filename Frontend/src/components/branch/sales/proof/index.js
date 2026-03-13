@@ -29,6 +29,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import { useState, useEffect } from 'react';
 import Iconify from '../../../iconify';
+import PropTypes from 'prop-types';
 import Scrollbar from '../../../scrollbar';
 
 const style = {
@@ -334,5 +335,13 @@ function ProofDocument({ step, setStep, setNotify, proofDocument, setProofDocume
     </>
   );
 }
+
+ProofDocument.propTypes = {
+  step: PropTypes.number,
+  setStep: PropTypes.func,
+  setNotify: PropTypes.func,
+  proofDocument: PropTypes.array,
+  setProofDocument: PropTypes.func,
+};
 
 export default ProofDocument;

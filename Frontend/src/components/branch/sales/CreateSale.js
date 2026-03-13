@@ -25,8 +25,9 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import moment from 'moment';
-import { getBranchByBranchId } from '../../../apis/branch/branch';
+// import { getBranchByBranchId } from '../../../apis/branch/branch';
 import { getGoldRateByState } from '../../../apis/branch/gold-rate';
 import { createSales } from '../../../apis/branch/sales';
 import Customer from './customer';
@@ -710,5 +711,10 @@ function CreateSale(props) {
     </>
   );
 }
+
+CreateSale.propTypes = {
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default CreateSale;

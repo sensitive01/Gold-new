@@ -35,11 +35,12 @@ import { useCallback, useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
 import Webcam from 'react-webcam';
+import PropTypes from 'prop-types';
 import Iconify from '../../../iconify';
 import Label from '../../../label';
-import { findCustomer, createCustomer, deleteCustomerById, sendOtp, verifyOtp } from '../../../../apis/branch/customer';
+import { findCustomer, createCustomer, deleteCustomerById } from '../../../../apis/branch/customer';
 import { createFile } from '../../../../apis/branch/fileupload';
-import { getBranchByBranchId } from '../../../../apis/branch/branch';
+// import { getBranchByBranchId } from '../../../../apis/branch/branch';
 import Scrollbar from '../../../scrollbar';
 
 const style = {
@@ -747,5 +748,18 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
     </>
   );
 }
+
+Customer.propTypes = {
+  step: PropTypes.number,
+  setStep: PropTypes.func,
+  setNotify: PropTypes.func,
+  selectedUser: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    phoneNumber: PropTypes.string,
+    address: PropTypes.array,
+  }),
+  setSelectedUser: PropTypes.func,
+};
 
 export default Customer;

@@ -29,6 +29,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import { useState, useEffect } from 'react';
 import Iconify from '../../../iconify';
+import PropTypes from 'prop-types';
 import Scrollbar from '../../../scrollbar';
 import { getAddressById, createAddress, deleteAddressById } from '../../../../apis/branch/customer-address';
 import { createFile } from '../../../../apis/branch/fileupload';
@@ -501,5 +502,12 @@ function Address({ step, setStep, setNotify, selectedUser }) {
     </>
   );
 }
+
+Address.propTypes = {
+  step: PropTypes.number,
+  setStep: PropTypes.func,
+  setNotify: PropTypes.func,
+  selectedUser: PropTypes.object,
+};
 
 export default Address;

@@ -8,13 +8,10 @@ import { useTheme } from '@mui/material/styles';
 // ----------------------------------------------------------------------
 
 const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
-  const theme = useTheme();
-
-  const PRIMARY_LIGHT = theme.palette.primary.light;
-
-  const PRIMARY_MAIN = theme.palette.primary.main;
-
-  const PRIMARY_DARK = theme.palette.primary.dark;
+  // const theme = useTheme();
+  // const PRIMARY_LIGHT = theme.palette.primary.light;
+  // const PRIMARY_MAIN = theme.palette.primary.main;
+  // const PRIMARY_DARK = theme.palette.primary.dark;
 
   // OR using local (public folder)
   // -------------------------------------------------------

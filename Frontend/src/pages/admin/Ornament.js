@@ -37,6 +37,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { useFormik } from 'formik';
 import moment from 'moment';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 // components
 import Iconify from '../../components/iconify';
 import Scrollbar from '../../components/scrollbar';
@@ -99,7 +100,7 @@ export default function Ornament() {
   const [order, setOrder] = useState('asc');
   const [openBackdrop, setOpenBackdrop] = useState(true);
   const [orderBy, setOrderBy] = useState(null);
-  const [filterName, setFilterName] = useState('');
+  const [filterName] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [data, setData] = useState([]);
   const [toggleContainer, setToggleContainer] = useState(false);
@@ -229,6 +230,11 @@ export default function Ornament() {
       </FormControl>
     );
   }
+
+  Status.propTypes = {
+    id: PropTypes.array,
+    st: PropTypes.string,
+  };
 
   return (
     <>
@@ -437,7 +443,7 @@ export default function Ornament() {
                     onChange={handleChange}
                   >
                     {branches.map((e) => (
-                      <MenuItem value={e._id}>
+                      <MenuItem key={e._id} value={e._id}>
                         {e.branchId} {e.branchName}
                       </MenuItem>
                     ))}
@@ -516,10 +522,14 @@ function Print({ data }) {
   const [ornament, setOrnament] = useState([]);
 
   useEffect(() => {
-    getOrnament(data).then((data) => {
-      setOrnament(data.data);
+    getOrnament(data).then((res) => {
+      setOrnament(res.data);
     });
   }, [data]);
+
+  Print.propTypes = {
+    data: PropTypes.object,
+  };
 
   return (
     <>

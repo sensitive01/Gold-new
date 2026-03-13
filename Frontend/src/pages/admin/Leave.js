@@ -1,6 +1,7 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -149,23 +150,26 @@ export default function Leave() {
     },
   });
 
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
+          $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      getLeave(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [values.fromDate, values.toDate]
+  );
+
   useEffect(() => {
     fetchData();
-  }, [toggleContainer]);
-
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
-        $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    getLeave(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  }, [toggleContainer, fetchData]);
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -275,8 +279,8 @@ export default function Leave() {
       <>
         <Button
           variant="contained"
-          onClick={(e) => {
-            updateLeave(props._id, { status: 'approved' }).then((data) => {
+          onClick={() => {
+            updateLeave(props._id, { status: 'approved' }).then(() => {
               fetchData();
             });
           }}
@@ -287,8 +291,8 @@ export default function Leave() {
           variant="contained"
           color="error"
           sx={{ ml: 2 }}
-          onClick={(e) => {
-            updateLeave(props._id, { status: 'rejected' }).then((data) => {
+          onClick={() => {
+            updateLeave(props._id, { status: 'rejected' }).then(() => {
               fetchData();
             });
           }}
@@ -298,6 +302,10 @@ export default function Leave() {
       </>
     );
   }
+
+  Status.propTypes = {
+    _id: PropTypes.string,
+  };
 
   return (
     <>

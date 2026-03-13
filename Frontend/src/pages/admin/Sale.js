@@ -1,6 +1,6 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -44,6 +44,7 @@ import { useFormik } from 'formik';
 import moment from 'moment';
 import * as XLSX from 'xlsx';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 // components
 import { SaleDetail, SalePrint } from '../../components/admin/sales';
 import Iconify from '../../components/iconify';
@@ -158,26 +159,29 @@ export default function Sale() {
     severity: 'success',
   });
 
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
+          $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      findSales(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [values.fromDate, values.toDate]
+  );
+
   useEffect(() => {
     getBranch().then((data) => {
       setBranches(data.data);
     });
     fetchData();
-  }, [toggleContainer]);
-
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
-        $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    findSales(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  }, [toggleContainer, fetchData]);
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -289,8 +293,8 @@ export default function Sale() {
       <>
         <Button
           variant="contained"
-          onClick={(e) => {
-            updateSales(props._id, { status: 'approved' }).then((data) => {
+          onClick={() => {
+            updateSales(props._id, { status: 'approved' }).then(() => {
               fetchData();
             });
           }}
@@ -301,8 +305,8 @@ export default function Sale() {
           variant="contained"
           color="error"
           sx={{ ml: 2 }}
-          onClick={(e) => {
-            updateSales(props._id, { status: 'rejected' }).then((data) => {
+          onClick={() => {
+            updateSales(props._id, { status: 'rejected' }).then(() => {
               fetchData();
             });
           }}
@@ -312,6 +316,10 @@ export default function Sale() {
       </>
     );
   }
+
+  Status.propTypes = {
+    _id: PropTypes.string,
+  };
 
   const handleFilterOpen = () => {
     setFilterOpen(true);
@@ -675,7 +683,7 @@ export default function Sale() {
                     onChange={handleChange}
                   >
                     {branches.map((e) => (
-                      <MenuItem value={e._id}>
+                      <MenuItem key={e._id} value={e._id}>
                         {e.branchId} {e.branchName}
                       </MenuItem>
                     ))}

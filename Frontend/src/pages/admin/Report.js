@@ -1,6 +1,6 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -139,23 +139,26 @@ export default function Report() {
     },
   });
 
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
+          $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      consolidatedSaleReport(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [values.fromDate, values.toDate]
+  );
+
   useEffect(() => {
     fetchData();
-  }, []);
-
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
-        $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    consolidatedSaleReport(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  }, [fetchData]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';

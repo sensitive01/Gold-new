@@ -38,6 +38,7 @@ import { useFormik } from 'formik';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 // components
 import Iconify from '../../components/iconify';
 import Scrollbar from '../../components/scrollbar';
@@ -121,7 +122,7 @@ export default function Ornament() {
     toDate: Yup.string().required('To date is required'),
   });
 
-  const { handleBlur, handleChange, handleSubmit, touched, errors, values, setFieldValue, resetForm } = useFormik({
+  const { handleSubmit, touched, errors, values, setFieldValue, resetForm } = useFormik({
     initialValues: {
       fromDate: null,
       toDate: null,
@@ -554,12 +555,16 @@ function Print({ data }) {
   const [ornament, setOrnament] = useState([]);
 
   useEffect(() => {
-    getLatestPrint(data).then((data) => {
-      if (data && data.status) {
-        setOrnament(data.data || []);
+    getLatestPrint(data).then((res) => {
+      if (res && res.status) {
+        setOrnament(res.data || []);
       }
     });
   }, [data]);
+
+  Print.propTypes = {
+    data: PropTypes.object,
+  };
 
   const firstEntry = ornament?.[0];
 

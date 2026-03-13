@@ -26,8 +26,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import { useEffect, useState } from 'react';
-import Iconify from '../../../iconify';
 import PropTypes from 'prop-types';
+import Iconify from '../../../iconify';
 import Scrollbar from '../../../scrollbar';
 
 const style = {

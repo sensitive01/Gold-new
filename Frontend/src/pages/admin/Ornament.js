@@ -763,7 +763,7 @@ function Print({ data }) {
           pri.document.open();
           pri.document.write(content.innerHTML);
           pri.document.close();
-          pri.onload = function () {
+          pri.onload = function onload() {
             pri.focus();
             pri.print();
           };

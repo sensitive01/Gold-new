@@ -9,7 +9,7 @@ import Iconify from '../../../../components/iconify';
 //
 import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
-import NotificationsPopover from './NotificationsPopover';
+// import NotificationsPopover from './NotificationsPopover';
 
 // ----------------------------------------------------------------------
 

@@ -39,19 +39,6 @@ import ProofDocument from './proof';
 import Scrollbar from '../../scrollbar';
 import { createFile } from '../../../apis/branch/fileupload';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 800,
-  maxHeight: '95%',
-  bgcolor: 'background.paper',
-  boxShadow: 24,
-  p: 4,
-  borderRadius: 2,
-  overflow: 'auto',
-};
 
 function CreateSale(props) {
   const auth = useSelector((state) => state.auth);
@@ -108,7 +95,7 @@ function CreateSale(props) {
           setSilverRate(data.data);
         });
       }
-  }, [auth]);
+  }, [auth.user.branch, auth.user.branch?.address?.state]);
 
   // Form validation
   const schema = Yup.object({

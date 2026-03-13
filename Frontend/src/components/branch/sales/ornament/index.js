@@ -123,8 +123,11 @@ function Ornament({ setNotify, ornaments, setOrnaments, goldRate, silverRate, pu
 
   useEffect(() => {
     const rate = purchaseType === 'gold' ? goldRate : purchaseType === 'silver' ? silverRate : 0;
-    setValues({ ...values, netAmount: Math.round((((values.netWeight ?? 0) * (values.purity ?? 0)) / 100) * rate) });
-  }, [values.netWeight, values.purity]);
+    setValues((prevValues) => ({
+      ...prevValues,
+      netAmount: Math.round((((prevValues.netWeight ?? 0) * (prevValues.purity ?? 0)) / 100) * rate),
+    }));
+  }, [goldRate, silverRate, purchaseType, setValues]);
 
   return (
     <>

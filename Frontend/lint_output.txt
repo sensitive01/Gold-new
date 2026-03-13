@@ -1,0 +1,569 @@
+﻿
+> @minimal/material-kit-react@1.6.0 lint
+> eslint --ext .js,.jsx ./src
+
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\apis\branch\branch.js
+  3:16  warning  'getState' is defined but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\accounts\branch\UpdateBranch.js
+   68:28  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   70:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   78:49  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   82:42  warning  'res' is defined but never used                                                                                                                   no-unused-vars
+   86:19  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   87:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  100:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  101:27  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  119:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  119:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  210:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+  228:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\accounts\expense\CreateExpense.js
+  17:76  warning  'setValues' is assigned a value but never used       no-unused-vars
+  17:87  warning  'resetForm' is assigned a value but never used       no-unused-vars
+  30:17  warning  'setNotify' is missing in props validation           react/prop-types
+  36:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+  37:17  warning  'setNotify' is missing in props validation           react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\accounts\expense\UpdateExpense.js
+   3:21  warning  'useState' is defined but never used                                                                                                              no-unused-vars
+  29:27  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  31:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  37:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+  38:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  51:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  52:28  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  56:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  56:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\accounts\fund\UpdateFund.js
+   48:26  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   50:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   56:19  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   59:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   72:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   73:25  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   82:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   82:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  141:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+  162:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\accounts\gold-rate\CreateGoldRate.js
+   37:17  warning  'setNotify' is missing in props validation           react/prop-types
+   43:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+   47:17  warning  'setNotify' is missing in props validation           react/prop-types
+  112:19  warning  Missing "key" prop for element in iterator           react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\accounts\gold-rate\UpdateGoldRate.js
+   35:28  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   37:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   43:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   44:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   57:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   58:29  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   62:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   62:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  116:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\accounts\sales\SaleDetail.js
+    2:3    warning  'TextField' is defined but never used  no-unused-vars
+   17:8    warning  'Link' is defined but never used       no-unused-vars
+   25:38   warning  'id' is missing in props validation    react/prop-types
+  294:110  warning  'index' is defined but never used      no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\branch\CreateBranch.js
+    3:10  warning  'useState' is defined but never used                 no-unused-vars
+   70:19  warning  'setNotify' is missing in props validation           react/prop-types
+   84:19  warning  'setToggleContainer' is missing in props validation  react/prop-types
+   87:19  warning  'setNotify' is missing in props validation           react/prop-types
+  182:19  warning  Missing "key" prop for element in iterator           react/jsx-key
+  200:19  warning  Missing "key" prop for element in iterator           react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\branch\UpdateBranch.js
+   68:28  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   70:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   78:49  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   82:42  warning  'res' is defined but never used                                                                                                                   no-unused-vars
+   88:19  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   89:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  102:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  103:27  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  124:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  124:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  215:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+  233:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\customer\CustomerDetail.js
+   21:42   warning  'id' is missing in props validation  react/prop-types
+   59:97   warning  'index' is defined but never used    no-unused-vars
+  131:100  warning  'index' is defined but never used    no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\employee\CreateEmployee.js
+  54:17  warning  'setNotify' is missing in props validation           react/prop-types
+  60:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+  63:17  warning  'setNotify' is missing in props validation           react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\employee\UpdateEmployee.js
+   7:21  warning  'useState' is defined but never used                                                                                                              no-unused-vars
+  52:30  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  54:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  60:19  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+  61:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  74:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  75:29  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  79:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  79:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\expense\UpdateExpense.js
+   3:21  warning  'useState' is defined but never used                                                                                                              no-unused-vars
+  29:27  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  31:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  37:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+  38:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  51:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  52:28  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  56:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  56:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\fund\UpdateFund.js
+   48:26  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   50:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   56:19  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   59:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   72:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   73:25  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   82:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   82:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  141:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+  162:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\gold-rate\CreateGoldRate.js
+   28:59  warning  'setValues' is assigned a value but never used       no-unused-vars
+   39:17  warning  'setNotify' is missing in props validation           react/prop-types
+   45:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+   49:17  warning  'setNotify' is missing in props validation           react/prop-types
+  114:19  warning  Missing "key" prop for element in iterator           react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\gold-rate\UpdateGoldRate.js
+   36:28  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   38:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   44:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   45:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   58:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   59:29  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   63:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   63:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  117:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\leave\UpdateLeave.js
+   66:25  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   68:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   74:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   75:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   96:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   97:26  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  106:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  106:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  135:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\report\Sale.js
+   63:3   warning  'filter' is missing in props validation                                                                                                                                                                                                                          react/prop-types
+   64:3   warning  'toggleContainer' is missing in props validation                                                                                                                                                                                                                 react/prop-types
+   65:3   warning  'setToggleContainer' is missing in props validation                                                                                                                                                                                                              react/prop-types
+   66:3   warning  'toggleContainerType' is missing in props validation                                                                                                                                                                                                             react/prop-types
+   67:3   warning  'setNotify' is missing in props validation                                                                                                                                                                                                                       react/prop-types
+   68:3   warning  'setOpenBackdrop' is missing in props validation                                                                                                                                                                                                                 react/prop-types
+   72:17  warning  'setOrder' is assigned a value but never used                                                                                                                                                                                                                    no-unused-vars
+   73:19  warning  'setOrderBy' is assigned a value but never used                                                                                                                                                                                                                  no-unused-vars
+   81:33  warning  'filter.date' is missing in props validation                                                                                                                                                                                                                     react/prop-types
+   81:59  warning  'filter.date' is missing in props validation                                                                                                                                                                                                                     react/prop-types
+   82:26  warning  'filter.branch' is missing in props validation                                                                                                                                                                                                                   react/prop-types
+   83:28  warning  'filter.type' is missing in props validation                                                                                                                                                                                                                     react/prop-types
+   84:24  warning  'filter.saleType' is missing in props validation                                                                                                                                                                                                                 react/prop-types
+   86:6   warning  React Hook useEffect has missing dependencies: 'fetchSale' and 'setOpenBackdrop'. Either include them or remove the dependency array. If 'setOpenBackdrop' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  180:39  warning  'e' is defined but never used                                                                                                                                                                                                                                    no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\sales\SaleDetail.js
+   27:38   warning  'id' is missing in props validation                                                                               react/prop-types
+   27:42   warning  'setNotify' is missing in props validation                                                                        react/prop-types
+   66:6    warning  React Hook useEffect has a missing dependency: 'setFieldValue'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  326:110  warning  'index' is defined but never used                                                                                 no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\support\SupportReply.js
+  29:40  warning  'id' is missing in props validation         react/prop-types
+  29:44  warning  'setNotify' is missing in props validation  react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\user\CreateUser.js
+  62:17  warning  'setNotify' is missing in props validation           react/prop-types
+  68:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+  71:17  warning  'setNotify' is missing in props validation           react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\admin\user\UpdateUser.js
+   52:24  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   54:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   60:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   61:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   77:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   78:25  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   86:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   86:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  177:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\attendance\CreateAttendance.js
+   1:10  warning  'FormControl' is defined but never used              no-unused-vars
+   1:23  warning  'InputLabel' is defined but never used               no-unused-vars
+   1:35  warning  'Select' is defined but never used                   no-unused-vars
+   1:43  warning  'MenuItem' is defined but never used                 no-unused-vars
+  16:10  warning  'employees' is assigned a value but never used       no-unused-vars
+  40:25  warning  'handleChange' is assigned a value but never used    no-unused-vars
+  40:39  warning  'handleBlur' is assigned a value but never used      no-unused-vars
+  40:51  warning  'values' is assigned a value but never used          no-unused-vars
+  40:59  warning  'touched' is assigned a value but never used         no-unused-vars
+  40:68  warning  'errors' is assigned a value but never used          no-unused-vars
+  40:76  warning  'setValues' is assigned a value but never used       no-unused-vars
+  47:15  warning  'setNotify' is missing in props validation           react/prop-types
+  56:17  warning  'setNotify' is missing in props validation           react/prop-types
+  73:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+  76:17  warning  'setNotify' is missing in props validation           react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\customer\CreateCustomer.js
+  12:10  warning  'getBranchByBranchId' is defined but never used       no-unused-vars
+  15:27  warning  'setToggleContainer' is missing in props validation   react/prop-types
+  15:47  warning  'setNotify' is missing in props validation            react/prop-types
+  18:10  warning  'token' is assigned a value but never used            no-unused-vars
+  18:17  warning  'setToken' is assigned a value but never used         no-unused-vars
+  19:10  warning  'altToken' is assigned a value but never used         no-unused-vars
+  19:20  warning  'setAltToken' is assigned a value but never used      no-unused-vars
+  68:5   warning  'setFieldError' is assigned a value but never used    no-unused-vars
+  69:5   warning  'setFieldTouched' is assigned a value but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\customer\CustomerDetail.js
+   21:42   warning  'id' is missing in props validation  react/prop-types
+   59:97   warning  'index' is defined but never used    no-unused-vars
+  131:100  warning  'index' is defined but never used    no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\expense\CreateExpense.js
+   8:10  warning  'getBranchByBranchId' is defined but never used                                                                      no-unused-vars
+  17:6   warning  React Hook useEffect has a missing dependency: 'auth.user.branch'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  26:76  warning  'setValues' is assigned a value but never used                                                                       no-unused-vars
+  39:17  warning  'setNotify' is missing in props validation                                                                           react/prop-types
+  45:17  warning  'setToggleContainer' is missing in props validation                                                                  react/prop-types
+  48:17  warning  'setNotify' is missing in props validation                                                                           react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\expense\UpdateExpense.js
+  29:27  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  31:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  37:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+  40:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  53:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  54:28  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  58:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  58:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\fund\CreateFund.js
+    8:21  warning  'getBranchByBranchId' is defined but never used      no-unused-vars
+   50:17  warning  'setNotify' is missing in props validation           react/prop-types
+   56:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+   59:17  warning  'setNotify' is missing in props validation           react/prop-types
+  128:19  warning  Missing "key" prop for element in iterator           react/jsx-key
+  149:19  warning  Missing "key" prop for element in iterator           react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\fund\UpdateFund.js
+    8:21  warning  'getBranchByBranchId' is defined but never used                                                                                                   no-unused-vars
+   50:26  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   52:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   58:19  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   60:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   73:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   74:25  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   83:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   83:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  144:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+  165:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\leave\UpdateLeave.js
+  104:6  warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\sales\CreateSale.js
+   42:7   warning  'style' is assigned a value but never used  no-unused-vars
+  134:16  warning  'values' is defined but never used          no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\sales\SaleDetail.js
+    2:3    warning  'TextField' is defined but never used  no-unused-vars
+   17:8    warning  'Link' is defined but never used       no-unused-vars
+   25:38   warning  'id' is missing in props validation    react/prop-types
+  294:110  warning  'index' is defined but never used      no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\sales\address\index.js
+  335:23  warning  Missing "key" prop for element in iterator  react/jsx-key
+  353:23  warning  Missing "key" prop for element in iterator  react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\sales\customer\index.js
+   63:10  warning  'token' is assigned a value but never used            no-unused-vars
+   63:17  warning  'setToken' is assigned a value but never used         no-unused-vars
+   64:10  warning  'altToken' is assigned a value but never used         no-unused-vars
+   64:20  warning  'setAltToken' is assigned a value but never used      no-unused-vars
+  170:5   warning  'setFieldError' is assigned a value but never used    no-unused-vars
+  171:5   warning  'setFieldTouched' is assigned a value but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\sales\ornament\index.js
+  127:6  warning  React Hook useEffect has missing dependencies: 'goldRate', 'purchaseType', 'setValues', 'silverRate', and 'values'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\branch\sales\release\index.js
+  72:9  warning  'modalRoot' is assigned a value but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\hr\branch\CreateBranch.js
+  63:17  warning  'setNotify' is missing in props validation           react/prop-types
+  69:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+  73:17  warning  'setNotify' is missing in props validation           react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\hr\branch\UpdateBranch.js
+   3:21  warning  'useState' is defined but never used                                                                                                              no-unused-vars
+  60:26  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  62:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  68:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+  69:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  82:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  83:27  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  99:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  99:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\hr\employee\CreateEmployee.js
+  54:17  warning  'setNotify' is missing in props validation           react/prop-types
+  60:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+  63:17  warning  'setNotify' is missing in props validation           react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\hr\employee\UpdateEmployee.js
+   7:21  warning  'useState' is defined but never used                                                                                                              no-unused-vars
+  52:30  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  54:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  60:19  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+  61:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  74:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  75:29  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  79:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  79:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\hr\leave\UpdateLeave.js
+   63:25  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   65:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   71:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   72:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   93:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   94:26  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  103:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  103:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  132:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\hr\payprocess\CreatePayprocess.js
+  30:76  warning  'setValues' is assigned a value but never used       no-unused-vars
+  46:17  warning  'setNotify' is missing in props validation           react/prop-types
+  52:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+  55:17  warning  'setNotify' is missing in props validation           react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\hr\payprocess\UpdatePayprocess.js
+  36:32  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  38:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  44:19  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+  45:19  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+  63:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  64:31  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  74:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  74:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\hr\user\CreateUser.js
+  58:17  warning  'setNotify' is missing in props validation           react/prop-types
+  64:17  warning  'setToggleContainer' is missing in props validation  react/prop-types
+  67:17  warning  'setNotify' is missing in props validation           react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\hr\user\UpdateUser.js
+   47:24  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   49:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   55:17  warning  'setToggleContainer' is missing in props validation                                                                                               react/prop-types
+   56:17  warning  'setNotify' is missing in props validation                                                                                                        react/prop-types
+   72:15  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   73:25  warning  'id' is missing in props validation                                                                                                               react/prop-types
+   81:6   warning  React Hook useEffect has missing dependencies: 'initialValues', 'resetForm', and 'setValues'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   81:13  warning  'id' is missing in props validation                                                                                                               react/prop-types
+  172:19  warning  Missing "key" prop for element in iterator                                                                                                        react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\components\logo\Logo.js
+  13:9  warning  'PRIMARY_LIGHT' is assigned a value but never used  no-unused-vars
+  15:9  warning  'PRIMARY_MAIN' is assigned a value but never used   no-unused-vars
+  17:9  warning  'PRIMARY_DARK' is assigned a value but never used   no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\layouts\dashboard\accounts\nav\index.js
+  6:18  warning  'alpha' is defined but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\layouts\dashboard\admin\nav\index.js
+  6:18  warning  'alpha' is defined but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\layouts\dashboard\branch\nav\index.js
+  6:18  warning  'alpha' is defined but never used  no-unused-vars
+  7:49  warning  'Stack' is defined but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\layouts\dashboard\hr\nav\index.js
+  6:18  warning  'alpha' is defined but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\accounts\Balancesheet.js
+  145:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  367:23  warning  Missing "key" prop for element in iterator                                                                    react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\accounts\Dashboard.js
+  15:9  warning  'theme' is assigned a value but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\accounts\Expense.js
+  154:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  288:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  289:33  warning  '_id' is missing in props validation                                                                          react/prop-types
+  289:68  warning  'data' is defined but never used                                                                              no-unused-vars
+  300:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  301:33  warning  '_id' is missing in props validation                                                                          react/prop-types
+  301:68  warning  'data' is defined but never used                                                                              no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\accounts\Fund.js
+  154:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  288:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  289:30  warning  '_id' is missing in props validation                                                                          react/prop-types
+  289:65  warning  'data' is defined but never used                                                                              no-unused-vars
+  300:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  301:30  warning  '_id' is missing in props validation                                                                          react/prop-types
+  301:65  warning  'data' is defined but never used                                                                              no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\accounts\GoldRate.js
+  148:6  warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\accounts\Sale.js
+  166:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  292:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  293:31  warning  '_id' is missing in props validation                                                                          react/prop-types
+  293:66  warning  'data' is defined but never used                                                                              no-unused-vars
+  304:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  305:31  warning  '_id' is missing in props validation                                                                          react/prop-types
+  305:66  warning  'data' is defined but never used                                                                              no-unused-vars
+  678:23  warning  Missing "key" prop for element in iterator                                                                    react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Attendance.js
+  104:27  warning  'setToggleContainer' is assigned a value but never used                                                       no-unused-vars
+  148:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Balancesheet.js
+  145:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  367:23  warning  Missing "key" prop for element in iterator                                                                    react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Branch.js
+  215:48  warning  'status' is missing in props validation  react/prop-types
+  221:30  warning  '_id' is missing in props validation     react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Dashboard.js
+  15:9  warning  'theme' is assigned a value but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Expense.js
+  154:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  288:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  289:33  warning  '_id' is missing in props validation                                                                          react/prop-types
+  289:68  warning  'data' is defined but never used                                                                              no-unused-vars
+  302:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  303:33  warning  '_id' is missing in props validation                                                                          react/prop-types
+  303:68  warning  'data' is defined but never used                                                                              no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Fund.js
+  154:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  288:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  289:30  warning  '_id' is missing in props validation                                                                          react/prop-types
+  289:65  warning  'data' is defined but never used                                                                              no-unused-vars
+  300:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  301:30  warning  '_id' is missing in props validation                                                                          react/prop-types
+  301:65  warning  'data' is defined but never used                                                                              no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\GoldRate.js
+  148:6  warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Leave.js
+  154:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  278:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  279:31  warning  '_id' is missing in props validation                                                                          react/prop-types
+  279:66  warning  'data' is defined but never used                                                                              no-unused-vars
+  290:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  291:31  warning  '_id' is missing in props validation                                                                          react/prop-types
+  291:66  warning  'data' is defined but never used                                                                              no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\OTP.js
+  90:27  warning  'setToggleContainer' is assigned a value but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Ornament.js
+  102:22  warning  'setFilterName' is assigned a value but never used  no-unused-vars
+  201:21  warning  'id' is missing in props validation                 react/prop-types
+  201:25  warning  'st' is missing in props validation                 react/prop-types
+  440:23  warning  Missing "key" prop for element in iterator          react/jsx-key
+  515:18  warning  'data' is missing in props validation               react/prop-types
+  520:24  warning  'data.data' is missing in props validation          react/prop-types
+  766:24  warning  Unexpected unnamed function                         func-names
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Payprocess.js
+  91:27  warning  'setToggleContainer' is assigned a value but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Release.js
+  161:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  545:23  warning  Missing "key" prop for element in iterator                                                                    react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Report.js
+  101:22  warning  'setFilterName' is assigned a value but never used                                                            no-unused-vars
+  144:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  284:39  warning  'e' is defined but never used                                                                                 no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Sale.js
+  166:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  292:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  293:31  warning  '_id' is missing in props validation                                                                          react/prop-types
+  293:66  warning  'data' is defined but never used                                                                              no-unused-vars
+  304:21  warning  'e' is defined but never used                                                                                 no-unused-vars
+  305:31  warning  '_id' is missing in props validation                                                                          react/prop-types
+  305:66  warning  'data' is defined but never used                                                                              no-unused-vars
+  678:23  warning  Missing "key" prop for element in iterator                                                                    react/jsx-key
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\Support.js
+  268:21  warning  'id' is missing in props validation  react/prop-types
+  268:25  warning  'st' is missing in props validation  react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\admin\User.js
+  279:48  warning  'status' is missing in props validation  react/prop-types
+  285:28  warning  '_id' is missing in props validation     react/prop-types
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\branch\Balancesheet.js
+  104:6  warning  React Hook useEffect has missing dependencies: 'auth.user.branch' and 'fetchData'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  125:9  warning  'handleClick' is assigned a value but never used                                                                                       no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\branch\Customer.js
+  120:6  warning  React Hook useEffect has missing dependencies: 'auth.user.branch' and 'fetchData'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\branch\Dashboard.js
+  11:9  warning  'theme' is assigned a value but never used  no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\branch\Fund.js
+  121:6  warning  React Hook useEffect has missing dependencies: 'auth.user.branch' and 'fetchData'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\branch\Ornament.js
+  124:11  warning  'handleBlur' is assigned a value but never used    no-unused-vars
+  124:23  warning  'handleChange' is assigned a value but never used  no-unused-vars
+  347:44  error    'index' is not defined                             no-undef
+  553:18  warning  'data' is missing in props validation              react/prop-types
+  558:24  warning  'data.status' is missing in props validation       react/prop-types
+  559:26  warning  'data.data' is missing in props validation         react/prop-types
+  808:24  warning  Unexpected unnamed function                        func-names
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\branch\Release.js
+  118:6  warning  React Hook useEffect has missing dependencies: 'auth.user.branch' and 'fetchData'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\branch\Report.js
+   83:22  warning  'setFilterName' is assigned a value but never used                                                                                     no-unused-vars
+   96:6   warning  React Hook useEffect has missing dependencies: 'auth.user.branch' and 'fetchData'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  132:9   warning  'style' is assigned a value but never used                                                                                             no-unused-vars
+
+E:\SensitiveTechnologies\Gold-New\Gold-New\Frontend\src\pages\branch\Sale.js
+  122:6  warning  React Hook useEffect has missing dependencies: 'auth.user.branch' and 'fetchData'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Γ£û 400 problems (1 error, 399 warnings)
+

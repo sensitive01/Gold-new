@@ -144,7 +144,7 @@ export default function Ornament() {
   });
 
   useEffect(() => {
-    setBranch(auth.user.branch);
+    setBranch(auth.user?.branch || {});
     fetchData({
       createdAt: {
         $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
@@ -329,7 +329,7 @@ export default function Ornament() {
                   onRequestSort={handleRequestSort}
                 />
                 <TableBody>
-                  {filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => {
+                  {filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                     const {
                       _id,
                       branchName,
@@ -344,7 +344,7 @@ export default function Ornament() {
                     const selectedData = selected.indexOf(_id) !== -1;
 
                     return (
-                      <TableRow hover key={index} tabIndex={-1}>
+                      <TableRow hover key={_id} tabIndex={-1}>
                         <TableCell padding="checkbox">
                           <Checkbox
                             checked={selectedData}
@@ -805,7 +805,7 @@ function Print({ data }) {
           pri.document.open();
           pri.document.write(content.innerHTML);
           pri.document.close();
-          pri.onload = function () {
+          pri.onload = function onload() {
             pri.focus();
             pri.print();
           };

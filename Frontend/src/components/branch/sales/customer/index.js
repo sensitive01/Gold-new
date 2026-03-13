@@ -75,8 +75,10 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
   const webcamRef = useRef(null);
 
   useEffect(() => {
-    setBranch(auth.user.branch);
-  }, [auth]);
+    if (auth.user?.branch) {
+      setBranch(auth.user.branch);
+    }
+  }, [auth.user?.branch]);
 
   const videoConstraints = {
     width: 420,
@@ -118,20 +120,23 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
 
   useEffect(() => {
     fetchCustomer();
-  }, []);
+  }, [fetchCustomer]);
 
-  const fetchCustomer = (
-    query = {
-      createdAt: {
-        $gte: moment()?.format('YYYY-MM-DD'),
-        $lte: moment()?.format('YYYY-MM-DD'),
-      },
-    }
-  ) => {
-    findCustomer(query).then((data) => {
-      setData(data.data);
-    });
-  };
+  const fetchCustomer = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: moment()?.format('YYYY-MM-DD'),
+          $lte: moment()?.format('YYYY-MM-DD'),
+        },
+      }
+    ) => {
+      findCustomer(query).then((data) => {
+        setData(data.data);
+      });
+    },
+    []
+  );
 
   // Form validation
   const schema = Yup.object({

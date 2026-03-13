@@ -234,7 +234,7 @@ function Consolidated({ date }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((e, index) => (
+              {data?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((e) => (
                 <TableRow hover key={e._id} tabIndex={-1}>
                   <TableCell align="left">{e.employee.name}</TableCell>
                   <TableCell align="left">{e.employee.employeeId}</TableCell>
@@ -289,6 +289,10 @@ function Consolidated({ date }) {
   );
 }
 
+Consolidated.propTypes = {
+  date: PropTypes.any,
+};
+
 export default function Attendance() {
   const [open, setOpen] = useState(null);
   const [openBackdrop, setOpenBackdrop] = useState(true);
@@ -299,7 +303,7 @@ export default function Attendance() {
   const [orderBy, setOrderBy] = useState(null);
   const [filterName, setFilterName] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [toggleContainer, setToggleContainer] = useState(false);
+  // const [toggleContainer, setToggleContainer] = useState(false);
   const [data, setData] = useState([]);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [deleteType, setDeleteType] = useState('single');
@@ -348,7 +352,7 @@ export default function Attendance() {
 
   useEffect(() => {
     fetchData();
-  }, [toggleContainer, fetchData]);
+  }, [fetchData]);
 
   const fetchData = useCallback(
     (
@@ -508,7 +512,7 @@ export default function Attendance() {
         </Alert>
       </Snackbar>
 
-      <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
+      <Container maxWidth="xl">
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             Attendance

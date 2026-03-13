@@ -1,6 +1,6 @@
-import { Button } from '@mui/material';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Button } from '@mui/material';
 import { getSalesById } from '../../../apis/branch/sales';
 import Iconify from '../../iconify';
 

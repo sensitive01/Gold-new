@@ -197,7 +197,7 @@ export default function Balancesheet() {
   return (
     <>
       <Helmet>
-        <title> Balancesheet | Gold Billing </title>
+        <title> Balancesheet | MK Gold </title>
       </Helmet>
 
       <Snackbar

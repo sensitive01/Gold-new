@@ -302,7 +302,7 @@ export default function Leave() {
   return (
     <>
       <Helmet>
-        <title> Leave | Gold Billing </title>
+        <title> Leave | MK Gold </title>
       </Helmet>
 
       <Snackbar

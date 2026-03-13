@@ -1,6 +1,6 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -146,21 +146,24 @@ export default function Ornament() {
       setBranches(data.data);
     });
     fetchData();
-  }, []);
+  }, [fetchData]);
 
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
-        $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    groupByBranchAndMovedAt(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
+          $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      groupByBranchAndMovedAt(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [values.fromDate, values.toDate]
+  );
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -230,7 +233,7 @@ export default function Ornament() {
   return (
     <>
       <Helmet>
-        <title> Move Gold | Gold Billing </title>
+        <title> Move Gold | MK Gold </title>
       </Helmet>
 
       <Snackbar
@@ -529,7 +532,7 @@ function Print({ data }) {
         />
         <div style={{ display: 'block', textAlign: 'center', margin: '10px auto' }}>
           <span>
-            Gold Billing Company, {ornament[0]?.branch?.branchName ?? ''}
+            MK Gold Company, {ornament[0]?.branch?.branchName ?? ''}
             <br /> {ornament[0]?.branch?.address?.city ?? ''}, {ornament[0]?.branch?.address?.state ?? ''} -{' '}
             {ornament[0]?.branch?.address?.pincode ?? ''}, {ornament[0]?.branch?.address?.landmark ?? ''}
           </span>

@@ -13,7 +13,7 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard | Gold Billing </title>
+        <title> Dashboard | MK Gold </title>
       </Helmet>
 
       <Container maxWidth="xl">

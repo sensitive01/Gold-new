@@ -144,7 +144,7 @@ export default function Report() {
   return (
     <>
       <Helmet>
-        <title> Report | Gold Billing </title>
+        <title> Report | MK Gold </title>
       </Helmet>
 
       <Container maxWidth="xl">

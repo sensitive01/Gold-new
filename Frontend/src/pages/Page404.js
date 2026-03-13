@@ -22,7 +22,7 @@ export default function Page404() {
   return (
     <>
       <Helmet>
-        <title> 404 Page Not Found | Gold Billing </title>
+        <title> 404 Page Not Found | MK Gold </title>
       </Helmet>
 
       <Container maxWidth="xl">

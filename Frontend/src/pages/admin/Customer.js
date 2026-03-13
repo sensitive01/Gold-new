@@ -273,7 +273,7 @@ export default function Customer() {
   return (
     <>
       <Helmet>
-        <title> Customer | Gold Billing </title>
+        <title> Customer | MK Gold </title>
       </Helmet>
 
       <Snackbar

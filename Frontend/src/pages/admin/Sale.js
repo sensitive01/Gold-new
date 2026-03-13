@@ -324,7 +324,7 @@ export default function Sale() {
   return (
     <>
       <Helmet>
-        <title> Sale | Gold Billing </title>
+        <title> Sale | MK Gold </title>
       </Helmet>
 
       <Snackbar

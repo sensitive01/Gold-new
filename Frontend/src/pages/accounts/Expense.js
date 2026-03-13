@@ -312,7 +312,7 @@ export default function Expense() {
   return (
     <>
       <Helmet>
-        <title> Expense | Gold Billing </title>
+        <title> Expense | MK Gold </title>
       </Helmet>
 
       <Snackbar

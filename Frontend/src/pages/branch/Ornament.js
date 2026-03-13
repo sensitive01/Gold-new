@@ -1,6 +1,6 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -152,22 +152,25 @@ export default function Ornament() {
       },
       branch: auth.user.branch._id,
     });
-  }, []);
+  }, [auth.user.branch, values.fromDate, values.toDate, fetchData]);
 
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
-        $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    if (!query.branch) query.branch = branch._id;
-    getOrnament(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
+          $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      if (!query.branch) query.branch = branch._id;
+      getOrnament(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [branch._id, values.fromDate, values.toDate]
+  );
 
   const handleMoveSelected = () => {
     updateOrnament({ id: selected, status: 'moved' }).then(() => {
@@ -250,7 +253,7 @@ export default function Ornament() {
   return (
     <>
       <Helmet>
-        <title> Move Gold | Gold Billing </title>
+        <title> Move Gold | MK Gold </title>
       </Helmet>
 
       <Snackbar
@@ -571,7 +574,7 @@ function Print({ data }) {
         />
         <div style={{ display: 'block', textAlign: 'center', margin: '10px auto' }}>
           <span>
-            Gold Billing Company, {firstEntry?.branch?.branchName ?? ''}
+            MK Gold Company, {firstEntry?.branch?.branchName ?? ''}
             <br /> {firstEntry?.branch?.address?.city ?? ''}, {firstEntry?.branch?.address?.state ?? ''} -{' '}
             {firstEntry?.branch?.address?.pincode ?? ''}, {firstEntry?.branch?.address?.landmark ?? ''}
           </span>

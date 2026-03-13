@@ -312,7 +312,7 @@ export default function Fund() {
   return (
     <>
       <Helmet>
-        <title> Fund | Gold Billing </title>
+        <title> Fund | MK Gold </title>
       </Helmet>
 
       <Snackbar

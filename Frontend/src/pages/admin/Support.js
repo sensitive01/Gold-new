@@ -292,7 +292,7 @@ export default function Support() {
   return (
     <>
       <Helmet>
-        <title> Support | Gold Billing </title>
+        <title> Support | MK Gold </title>
       </Helmet>
 
       <Snackbar

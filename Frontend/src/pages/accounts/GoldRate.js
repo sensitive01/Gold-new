@@ -267,7 +267,7 @@ export default function GoldRate() {
   return (
     <>
       <Helmet>
-        <title> Gold Rate | Gold Billing </title>
+        <title> Gold Rate | MK Gold </title>
       </Helmet>
 
       <Snackbar

@@ -1,5 +1,5 @@
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Helmet } from 'react-helmet-async';
 // @mui
@@ -137,18 +137,21 @@ function Consolidated({ date }) {
 
   useEffect(() => {
     fetchData();
-  }, [date]);
+  }, [date, fetchData]);
 
-  const fetchData = (
-    query = {
-      date,
-    }
-  ) => {
-    getConsolidatedAttendance(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  const fetchData = useCallback(
+    (
+      query = {
+        date,
+      }
+    ) => {
+      getConsolidatedAttendance(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [date]
+  );
 
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data?.length) : 0;
   const handleChangePage = (event, newPage) => {
@@ -345,21 +348,24 @@ export default function Attendance() {
 
   useEffect(() => {
     fetchData();
-  }, [toggleContainer]);
+  }, [toggleContainer, fetchData]);
 
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
-        $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    getAttendance(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
+          $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      getAttendance(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [values.fromDate, values.toDate]
+  );
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -477,7 +483,7 @@ export default function Attendance() {
   return (
     <>
       <Helmet>
-        <title> Attendance | Gold Billing </title>
+        <title> Attendance | MK Gold </title>
       </Helmet>
 
       <Snackbar

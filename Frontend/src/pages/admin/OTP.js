@@ -216,7 +216,7 @@ export default function OTP() {
   return (
     <>
       <Helmet>
-        <title> OTP | Gold Billing </title>
+        <title> OTP | MK Gold </title>
       </Helmet>
 
       <Snackbar

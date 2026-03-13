@@ -232,7 +232,7 @@ export default function User() {
   return (
     <>
       <Helmet>
-        <title> User | Gold Billing </title>
+        <title> User | MK Gold </title>
       </Helmet>
 
       <Snackbar

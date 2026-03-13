@@ -277,7 +277,7 @@ export default function Attendance() {
   return (
     <>
       <Helmet>
-        <title> Attendance | Gold Billing </title>
+        <title> Attendance | MK Gold </title>
       </Helmet>
 
       <Snackbar

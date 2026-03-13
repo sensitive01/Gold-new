@@ -230,7 +230,7 @@ export default function Release() {
   return (
     <>
       <Helmet>
-        <title> Release | Gold Billing </title>
+        <title> Release | MK Gold </title>
       </Helmet>
 
       <Snackbar

@@ -220,7 +220,7 @@ export default function Payprocess() {
   return (
     <>
       <Helmet>
-        <title> Payprocess | Gold Billing </title>
+        <title> Payprocess | MK Gold </title>
       </Helmet>
 
       <Snackbar

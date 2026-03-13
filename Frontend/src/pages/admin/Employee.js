@@ -222,7 +222,7 @@ export default function Employee() {
   return (
     <>
       <Helmet>
-        <title> Employee | Gold Billing </title>
+        <title> Employee | MK Gold </title>
       </Helmet>
 
       <Snackbar

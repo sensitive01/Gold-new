@@ -229,7 +229,7 @@ export default function Branch() {
   return (
     <>
       <Helmet>
-        <title> Branch | Gold Billing </title>
+        <title> Branch | MK Gold </title>
       </Helmet>
 
       <Snackbar

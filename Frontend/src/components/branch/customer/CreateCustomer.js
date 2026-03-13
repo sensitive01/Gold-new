@@ -1,4 +1,4 @@
-import { TextField, FormControl, InputLabel, Select, MenuItem, Card, Grid, Button, Stack } from '@mui/material';
+import { TextField, FormControl, InputLabel, Select, MenuItem, Card, Grid } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
@@ -7,9 +7,8 @@ import { useCallback, useState, useEffect, useRef } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Webcam from 'react-webcam';
-import moment from 'moment';
 import { useSelector } from 'react-redux';
-import { createCustomer, sendOtp, verifyOtp } from '../../../apis/branch/customer';
+import { createCustomer } from '../../../apis/branch/customer';
 import { getBranchByBranchId } from '../../../apis/branch/branch';
 import { createFile } from '../../../apis/branch/fileupload';
 

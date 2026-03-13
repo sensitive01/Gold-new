@@ -1,4 +1,5 @@
 import { Button } from '@mui/material';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { getSalesById } from '../../../apis/admin/sales';
 import Iconify from '../../iconify';
@@ -219,7 +220,7 @@ export default function SalePrint({ id }) {
           pri.document.open();
           pri.document.write(content.innerHTML);
           pri.document.close();
-          pri.onload = function () {
+          pri.onload = () => {
             pri.focus();
             pri.print();
           };
@@ -230,3 +231,7 @@ export default function SalePrint({ id }) {
     </>
   );
 }
+
+SalePrint.propTypes = {
+  id: PropTypes.string,
+};

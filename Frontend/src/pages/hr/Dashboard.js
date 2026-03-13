@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { Backdrop, CircularProgress, Container, Grid, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 // sections
 import { getCount } from '../../apis/hr/dashboard';
@@ -12,7 +11,6 @@ import { AppWidgetSummary } from '../../sections/@dashboard/app';
 export default function DashboardAppPage() {
   const [count, setCount] = useState(null);
   const [openBackdrop, setOpenBackdrop] = useState(true);
-  const theme = useTheme();
 
   useEffect(() => {
     getCount().then((data) => {
@@ -24,7 +22,7 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard | Gold Billing </title>
+        <title> Dashboard | MK Gold </title>
       </Helmet>
 
       <Container maxWidth="xl">

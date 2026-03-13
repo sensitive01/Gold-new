@@ -3,12 +3,12 @@
   "name": "Gold Billing",
   "icons": [
     {
-      "src": "favicon/logo.png",
+      "src": "/newLogo.jpeg",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "favicon/logo.png",
+      "src": "/newLogo.jpeg",
       "sizes": "512x512",
       "type": "image/png"
     }

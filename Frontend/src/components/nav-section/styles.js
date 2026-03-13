@@ -9,14 +9,22 @@ export const StyledNavItem = styled((props) => <ListItemButton disableGutters {.
   height: 48,
   position: 'relative',
   textTransform: 'capitalize',
-  color: theme.palette.text.secondary,
+  color: 'rgba(255, 255, 255, 0.9)', // White text
   borderRadius: theme.shape.borderRadius,
+  marginBottom: theme.spacing(1),
+  '&:hover': {
+    backgroundColor: '#FFD700', // Yellow
+    color: '#8A1B9F', // Violet
+    '& .MuiListItemIcon-root': {
+      color: '#fff', // White icon on yellow background
+    },
+  },
 }));
 
 export const StyledNavItemIcon = styled(ListItemIcon)({
   width: 22,
   height: 22,
-  color: 'inherit',
+  color: '#FFD700', // Secondary Yellow
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

@@ -37,7 +37,10 @@ export default function DashboardAppPage() {
             <AppWidgetSummary
               title="Today's gold rate"
               total={count?.todayGoldRate}
-              icon={'ant-design:android-filled'}
+              icon={'mdi:gold'}
+              bgColor="#8A1B9F"
+              iconColor="#FFD700"
+              textColor="#fff"
             />
           </Grid>
 
@@ -45,8 +48,10 @@ export default function DashboardAppPage() {
             <AppWidgetSummary
               title="Today's customers"
               total={count?.todayCustomers}
-              color="info"
-              icon={'ant-design:apple-filled'}
+              icon={'mdi:account-group'}
+              bgColor="#FFD700"
+              iconColor="#8A1B9F"
+              textColor="#000"
             />
           </Grid>
 
@@ -54,8 +59,10 @@ export default function DashboardAppPage() {
             <AppWidgetSummary
               title="Today's bills"
               total={count?.todayBills}
-              color="warning"
-              icon={'ant-design:windows-filled'}
+              icon={'mdi:file-document-edit'}
+              bgColor="#8A1B9F"
+              iconColor="#FFD700"
+              textColor="#fff"
             />
           </Grid>
 
@@ -63,8 +70,10 @@ export default function DashboardAppPage() {
             <AppWidgetSummary
               title="Today’s physical bills"
               total={count?.todayPhysicalBills}
-              color="error"
-              icon={'ant-design:bug-filled'}
+              icon={'mdi:printer-pos'}
+              bgColor="#FFD700"
+              iconColor="#8A1B9F"
+              textColor="#000"
             />
           </Grid>
 
@@ -72,8 +81,10 @@ export default function DashboardAppPage() {
             <AppWidgetSummary
               title="Today's pledge bills"
               total={count?.todayPledgeBills}
-              color="warning"
-              icon={'ant-design:windows-filled'}
+              icon={'mdi:handshake'}
+              bgColor="#8A1B9F"
+              iconColor="#FFD700"
+              textColor="#fff"
             />
           </Grid>
 
@@ -81,8 +92,10 @@ export default function DashboardAppPage() {
             <AppWidgetSummary
               title="Total gross weight"
               total={count?.totalGrossWeight}
-              color="info"
-              icon={'ant-design:apple-filled'}
+              icon={'mdi:weight'}
+              bgColor="#FFD700"
+              iconColor="#8A1B9F"
+              textColor="#000"
             />
           </Grid>
 
@@ -90,13 +103,22 @@ export default function DashboardAppPage() {
             <AppWidgetSummary
               title="Total net amount"
               total={count?.totalNetAmount}
-              color="error"
-              icon={'ant-design:bug-filled'}
+              icon={'mdi:cash-multiple'}
+              bgColor="#8A1B9F"
+              iconColor="#FFD700"
+              textColor="#fff"
             />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total expenses" total={count?.totalExpenses} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary 
+              title="Total expenses" 
+              total={count?.totalExpenses} 
+              icon={'mdi:wallet'} 
+              bgColor="#FFD700" 
+              iconColor="#8A1B9F" 
+              textColor="#000"
+            />
           </Grid>
 
           {/* <Grid item xs={12} md={6} lg={8}>

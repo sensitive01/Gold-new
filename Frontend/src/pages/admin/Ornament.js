@@ -524,7 +524,7 @@ function Print({ data }) {
       <div id="pdf">
         <img
           alt="Logo"
-          src="/assets/logo.png"
+          src="/newLogo.jpeg"
           style={{ width: '100px', display: 'block', margin: '20px auto', borderRadius: '50%' }}
         />
         <div style={{ display: 'block', textAlign: 'center', margin: '10px auto' }}>

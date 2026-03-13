@@ -18,12 +18,12 @@ export default function SalePrint({ id }) {
       <div id="pdf">
         <img
           alt="Logo"
-          src="/assets/logo.png"
+          src="/newLogo.jpeg"
           style={{ width: '100px', display: 'block', margin: '20px auto', borderRadius: '50%' }}
         />
         <div style={{ display: 'block', textAlign: 'center', margin: '10px auto' }}>
           <span>
-            Gold Billing, {data?.branch?.branchName}, {data?.branch?.address?.city}
+            MK Gold, {data?.branch?.branchName}, {data?.branch?.address?.city}
           </span>
           <br />
           <b>Ph:</b> 63661 11999
@@ -207,7 +207,7 @@ export default function SalePrint({ id }) {
         <hr style={{ border: '0', borderBottom: '1px solid' }} />
         <div style={{ textAlign: 'center', margin: '20px 0' }}>
           Thanks For your billing
-          <br /> www.benakagoldcompany.com
+          <br /> www.mk-gold.com
         </div>
       </div>
       <Button

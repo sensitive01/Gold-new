@@ -34,15 +34,24 @@ export default function DashboardAppPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total employees" total={count?.totalEmployee} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary 
+              title="Total employees" 
+              total={count?.totalEmployee} 
+              icon={'mdi:account-group'} 
+              bgColor="#8A1B9F" 
+              iconColor="#FFD700" 
+              textColor="#fff"
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
               title="Present today"
               total={count?.totalPresent}
-              color="info"
-              icon={'ant-design:apple-filled'}
+              icon={'mdi:account-check'}
+              bgColor="#FFD700"
+              iconColor="#8A1B9F"
+              textColor="#000"
             />
           </Grid>
 
@@ -50,8 +59,10 @@ export default function DashboardAppPage() {
             <AppWidgetSummary
               title="Absent today"
               total={count?.totalAbsent}
-              color="warning"
-              icon={'ant-design:windows-filled'}
+              icon={'mdi:account-remove'}
+              bgColor="#8A1B9F"
+              iconColor="#FFD700"
+              textColor="#fff"
             />
           </Grid>
 
@@ -59,8 +70,10 @@ export default function DashboardAppPage() {
             <AppWidgetSummary
               title="Late today"
               total={count?.totalLate}
-              color="error"
-              icon={'ant-design:bug-filled'}
+              icon={'mdi:account-clock'}
+              bgColor="#FFD700"
+              iconColor="#8A1B9F"
+              textColor="#000"
             />
           </Grid>
 

@@ -13,17 +13,31 @@ import { LoginForm } from '../sections/auth/login';
 const StyledRoot = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     display: 'flex',
+    minHeight: '100vh',
   },
+  backgroundColor: '#f4f6f8',
 }));
 
 const StyledSection = styled('div')(({ theme }) => ({
   width: '100%',
-  maxWidth: 840,
+  maxWidth: 480,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  boxShadow: theme.customShadows.card,
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: '#8A1B9F', // Brand Purple
+  color: '#fff',
+  padding: theme.spacing(0, 5),
+  textAlign: 'center',
+  position: 'relative',
+  '&:before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)',
+  },
 }));
 
 const StyledContent = styled('div')(({ theme }) => ({
@@ -44,50 +58,78 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login | Gold Billing </title>
+        <title> Login | MK Gold World </title>
       </Helmet>
 
       <StyledRoot>
-        {/* <Logo
-          sx={{
-            position: 'fixed',
-            top: { xs: 16, sm: 24, md: 40 },
-            left: { xs: 16, sm: 24, md: 40 },
-          }}
-        /> */}
-
         {mdUp && (
           <StyledSection>
-            {/* <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Hi, Welcome Back
-            </Typography> */}
-            <img src="/assets/login.jpg" alt="login" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 2, fontWeight: 'bold' }}>
+              MK Gold World
+            </Typography>
+            <Typography variant="body1" sx={{ px: 5, mb: 5, opacity: 0.8 }}>
+              The most trusted and transparent billing solution for your gold business.
+            </Typography>
+            <Box
+              component="img"
+              src="/newLogo.jpeg"
+              alt="Logo"
+              sx={{
+                width: 200,
+                mx: 'auto',
+                borderRadius: 2,
+                boxShadow: (theme) => theme.customShadows.z24,
+                border: '4px solid #FFD700', // Brand Yellow/Gold
+              }}
+            />
+            <Typography variant="h6" sx={{ mt: 5, color: '#FFD700', fontWeight: 'bold' }}>
+              TRUE • TRUSTED • TRANSPARENT
+            </Typography>
           </StyledSection>
         )}
 
         <Container maxWidth="sm">
           <StyledContent>
             <Box
-              component="div"
               sx={{
-                width: 96,
-                height: 96,
-                display: 'inline-flex',
-                mx: 'auto',
-                mb: 5,
+                p: 4,
+                bgcolor: 'background.paper',
+                borderRadius: 2,
+                boxShadow: (theme) => theme.customShadows.z8,
+                textAlign: 'center',
               }}
             >
-              <img alt="Logo" src="/assets/logo.png" />
+              <Box
+                component="div"
+                sx={{
+                  width: 80,
+                  height: 80,
+                  display: 'inline-flex',
+                  mx: 'auto',
+                  mb: 3,
+                }}
+              >
+                <img alt="Logo" src="/newLogo.jpeg" style={{ borderRadius: '8px' }} />
+              </Box>
+              
+              <Typography variant="h4" gutterBottom sx={{ mb: 1, color: '#8A1B9F' }}>
+                Sign in to Continue
+              </Typography>
+              <Typography variant="body2" sx={{ mb: 4, color: 'text.secondary' }}>
+                Enter your details below to access your account.
+              </Typography>
+
+              <LoginForm />
+
+              <Box sx={{ mt: 3 }}>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  Don’t have an account?{' '}
+                  <Box component="span" sx={{ color: '#8A1B9F', fontWeight: 'bold', cursor: 'pointer' }}>
+                    Contact Administrator
+                  </Box>
+                </Typography>
+              </Box>
             </Box>
-            <Typography variant="h4" gutterBottom sx={{ mb: 5 }}>
-              Sign in to Continue
-            </Typography>
-
-            {/* <Typography variant="body2" sx={{ mb: 5 }}>
-              Don’t have an account? <Link variant="subtitle2">Get started</Link>
-            </Typography> */}
-
-            <LoginForm />
           </StyledContent>
         </Container>
       </StyledRoot>

@@ -26,9 +26,36 @@ function login(req, res, next) {
           Math.floor(100000 + Math.random() * 900000)
         ).substring(0, 6);
 
+        console.log("BYPASSING SMS: OTP for", user.employee?.phoneNumber, "is", otp);
+
+        const token = jwt.sign(
+          {
+            sub: {
+              user,
+              otp,
+            },
+            iat: new Date().getTime(),
+          },
+          process.env.SECRET,
+          { expiresIn: "5m" }
+        );
+
+        otpService.create({
+          type: "employee",
+          otp: otp,
+          phoneNumber: user.employee?.phoneNumber,
+        });
+
+        return res.json({
+          status: true,
+          message: "OTP generated successfully (SMS bypassed).",
+          data: { token, otp }, // Returning OTP in data so user can see it if needed
+        });
+
+        /*
         axios
           .get(
-            `https://pgapi.vispl.in/fe/api/v1/send?username=benakagold.trans&password=hhwGK&unicode=false&from=BENGLD&to=${user.employee?.phoneNumber}&text=Hi.%20Your%20One%20Time%20Password%20to%20login%20benaka%20Gold%20Company%20is%20${otp}.%20This%20OTP%20is%20valid%20for%205%20minutes%20only.&dltContentId=1707168542360758659`
+            `https://pgapi.vispl.in/fe/api/v1/send?username=mkgold.trans&password=hhwGK&unicode=false&from=MKGOLD&to=${user.employee?.phoneNumber}&text=Hi.%20Your%20One%20Time%20Password%20to%20login%20MK%20Gold%20World%20is%20${otp}.%20This%20OTP%20is%20valid%20for%205%20minutes%20only.&dltContentId=1707168542360758659`
           )
           .then((data) => {
             if (
@@ -73,6 +100,7 @@ function login(req, res, next) {
               data: {},
             });
           });
+          */
       } else {
         const token = jwt.sign(
           {

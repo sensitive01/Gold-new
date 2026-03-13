@@ -38,9 +38,12 @@ function NavItem({ item }) {
       to={path}
       sx={{
         '&.active': {
-          color: 'text.primary',
-          bgcolor: 'action.selected',
+          color: '#8A1B9F', // Violet
+          bgcolor: '#FFD700', // Yellow
           fontWeight: 'fontWeightBold',
+          '& .MuiListItemIcon-root': {
+            color: '#fff', // White icon
+          },
         },
       }}
     >

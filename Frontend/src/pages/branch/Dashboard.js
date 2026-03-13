@@ -24,37 +24,79 @@ export default function DashboardAppPage() {
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
             <Link href="/branch/customer" underline="none">
-              <AppWidgetSummary title="Customers" total={false} icon={'ant-design:android-filled'} />
+              <AppWidgetSummary
+                title="Customers"
+                total={false}
+                icon={'mdi:account-group'}
+                bgColor="#8A1B9F"
+                iconColor="#FFD700"
+                textColor="#fff"
+              />
             </Link>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <Link href="/branch/sale" underline="none">
-              <AppWidgetSummary title="Billing" total={false} color="info" icon={'ant-design:apple-filled'} />
+              <AppWidgetSummary
+                title="Billing"
+                total={false}
+                icon={'mdi:file-document-edit'}
+                bgColor="#FFD700"
+                iconColor="#8A1B9F"
+                textColor="#000"
+              />
             </Link>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <Link href="/branch/expense" underline="none">
-              <AppWidgetSummary title="Expenses" total={false} color="warning" icon={'ant-design:windows-filled'} />
+              <AppWidgetSummary
+                title="Expenses"
+                total={false}
+                icon={'mdi:wallet'}
+                bgColor="#8A1B9F"
+                iconColor="#FFD700"
+                textColor="#fff"
+              />
             </Link>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <Link href="/branch/fund" underline="none">
-              <AppWidgetSummary title="Funds" total={false} color="error" icon={'ant-design:bug-filled'} />
+              <AppWidgetSummary
+                title="Funds"
+                total={false}
+                icon={'mdi:bank'}
+                bgColor="#FFD700"
+                iconColor="#8A1B9F"
+                textColor="#000"
+              />
             </Link>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <Link href="/branch/leave" underline="none">
-              <AppWidgetSummary title="Leave" total={false} color="info" icon={'ant-design:apple-filled'} />
+              <AppWidgetSummary
+                title="Leave"
+                total={false}
+                icon={'mdi:calendar-remove'}
+                bgColor="#8A1B9F"
+                iconColor="#FFD700"
+                textColor="#fff"
+              />
             </Link>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <Link href="/branch/attendance" underline="none">
-              <AppWidgetSummary title="Attendance" total={false} color="warning" icon={'ant-design:windows-filled'} />
+              <AppWidgetSummary
+                title="Attendance"
+                total={false}
+                icon={'mdi:clock-check'}
+                bgColor="#FFD700"
+                iconColor="#8A1B9F"
+                textColor="#000"
+              />
             </Link>
           </Grid>
 

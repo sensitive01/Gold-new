@@ -1,4 +1,4 @@
-import { TextField, FormControl, InputLabel, Select, MenuItem, Card, Grid } from '@mui/material';
+import { TextField, FormControl, InputLabel, Select, MenuItem, Card, Grid, Button, Stack } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
@@ -50,11 +50,8 @@ function CreateCustomer({ setToggleContainer, setNotify }) {
     email: Yup.string().required('Email id is required'),
     dob: Yup.string().required('DOB is required'),
     gender: Yup.string().required('Gender is required'),
-    // otp: Yup.string().required('Phone number otp is required').length(6),
-    // altOtp: Yup.string().when('alternatePhoneNumber', {
-    //   is: (v) => !!v,
-    //   then: Yup.string().required('Alt phone number otp is required').length(6),
-    // }),
+    otp: Yup.string().length(6),
+    altOtp: Yup.string().length(6),
     employmentType: Yup.string().required('Employment type is required'),
     organisation: Yup.string().required('Organisation is required'),
     annualIncome: Yup.string().required('Annual income is required'),
@@ -80,8 +77,8 @@ function CreateCustomer({ setToggleContainer, setNotify }) {
       email: '',
       dob: null,
       gender: '',
-      // otp: '',
-      // altOtp: '',
+      otp: '',
+      altOtp: '',
       employmentType: '',
       organisation: '',
       annualIncome: '',
@@ -95,32 +92,13 @@ function CreateCustomer({ setToggleContainer, setNotify }) {
     },
     validationSchema: schema,
     onSubmit: async (values) => {
-      // setFieldTouched('otp', false);
-      // // const res = await verifyOtp({ otp: values.otp, token });
-      // if (res.status === false) {
-      //   setFieldError('otp',);
-      //   setNotify({
-      //     open: true,
-      //     message: res.message,
-      //     severity: 'error',
-      //   });
-      //   return;
-      // }
-      // setFieldError('otp', '');
-      // if (!!values.altOtp && !!values.alternatePhoneNumber) {
-      //   setFieldTouched('altOtp', false);
-      //   // const altRes = await verifyOtp({ otp: values.altOtp, token: altToken });
-      //   if (altRes.status === false) {
-      //     setFieldError('altOtp');
-      //     setNotify({
-      //       open: true,
-      //       message: altRes.message,
-      //       severity: 'error',
-      //     });
-      //     return;
-      //   }
-      //   setFieldError('altOtp', '');
-      // }
+      /*
+      setFieldTouched('otp', false);
+      const res = await verifyOtp({ otp: values.otp, token });
+      if (res.status === true || res.status === false) { // Simple bypass for now as per "hide functionality"
+        // ... handled below
+      }
+      */
       if (!img) {
         setNotify({
           open: true,
@@ -137,7 +115,8 @@ function CreateCustomer({ setToggleContainer, setNotify }) {
         email: values.email,
         dob: values.dob,
         gender: values.gender,
-        // otp: values.otp,
+        otp: values.otp,
+        altOtp: values.altOtp,
         employmentType: values.employmentType,
         organisation: values.organisation,
         annualIncome: values.annualIncome,
@@ -222,8 +201,7 @@ function CreateCustomer({ setToggleContainer, setNotify }) {
               label={touched.phoneNumber && errors.phoneNumber ? errors.phoneNumber : 'Phone'}
               fullWidth
               onBlur={handleBlur}
-
- 
+              onChange={handleChange}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -236,9 +214,36 @@ function CreateCustomer({ setToggleContainer, setNotify }) {
               }
               fullWidth
               onBlur={handleBlur}
-              
+              onChange={handleChange}
             />
           </Grid>
+            {/* 
+            <Button
+              size="small"
+              variant="outlined"
+              sx={{
+                color: '#8A1B9F',
+                borderColor: '#8A1B9F',
+                '&:hover': {
+                  borderColor: '#FFD700',
+                  backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                },
+              }}
+              onClick={() => {
+                sendOtp({ phoneNumber: values.alternatePhoneNumber }).then((data) => {
+                  if (data.status === true) {
+                    setAltToken(data.data.token);
+                    setNotify({ open: true, message: 'OTP Sent', severity: 'success' });
+                  } else {
+                    setNotify({ open: true, message: data.message, severity: 'error' });
+                  }
+                });
+              }}
+              disabled={values.alternatePhoneNumber.length !== 10}
+            >
+              Send OTP
+            </Button>
+            */}
           <Grid item xs={12} sm={4}>
             <TextField
               name="email"
@@ -283,8 +288,9 @@ function CreateCustomer({ setToggleContainer, setNotify }) {
               </Select>
             </FormControl>
           </Grid>
+          {/* 
           <Grid item xs={12} sm={4}>
-            {/* <TextField
+            <TextField
               name="otp"
               value={values.otp}
               error={touched.otp && errors.otp && true}
@@ -292,10 +298,10 @@ function CreateCustomer({ setToggleContainer, setNotify }) {
               fullWidth
               onBlur={handleBlur}
               onChange={handleChange}
-            /> */}
+            />
           </Grid>
           <Grid item xs={12} sm={4}>
-            {/* <TextField
+            <TextField
               name="altOtp"
               value={values.altOtp}
               error={touched.altOtp && errors.altOtp && true}
@@ -303,8 +309,9 @@ function CreateCustomer({ setToggleContainer, setNotify }) {
               fullWidth
               onBlur={handleBlur}
               onChange={handleChange}
-            /> */}
+            />
           </Grid>
+          */}
           <Grid item xs={12} sm={4}>
             <FormControl fullWidth error={touched.employmentType && errors.employmentType && true}>
               <InputLabel id="select-label">Select Employment Type</InputLabel>

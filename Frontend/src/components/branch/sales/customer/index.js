@@ -145,11 +145,8 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
     email: Yup.string().required('Email id is required').email(),
     dob: Yup.string().required('DOB is required'),
     gender: Yup.string().required('Gender is required'),
-    // otp: Yup.string().required('Phone number otp is required').length(6),
-    // altOtp: Yup.string().when('alternatePhoneNumber', {
-    //   is: (v) => !!v,
-    //   then: Yup.string().required('Alt phone number otp is required').length(6),
-    // }),
+    otp: Yup.string().length(6),
+    altOtp: Yup.string().length(6),
     employmentType: Yup.string().required('Employment type is required'),
     organisation: Yup.string().required('Organisation is required'),
     annualIncome: Yup.string().required('Annual income is required'),
@@ -175,8 +172,8 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
       email: '',
       dob: null,
       gender: '',
-      // otp: '',
-      // altOtp: '',
+      otp: '',
+      altOtp: '',
       employmentType: '',
       organisation: '',
       annualIncome: '',
@@ -190,32 +187,13 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
     },
     validationSchema: schema,
     onSubmit: async (values) => {
-      // setFieldTouched('otp', true);
-      // const res = await verifyOtp({ otp: values.otp, token });
-      // if (res.status === false) {
-      //   setFieldError('otp', res.message);
-      //   setNotify({
-      //     open: true,
-      //     message: res.message,
-      //     severity: 'error',
-      //   });
-      //   return;
-      // }
-      // setFieldError('otp', '');
-      // if (!!values.altOtp && !!values.alternatePhoneNumber) {
-      //   setFieldTouched('altOtp', true);
-      //   const altRes = await verifyOtp({ otp: values.altOtp, token: altToken });
-      //   if (altRes.status === false) {
-      //     setFieldError('altOtp', altRes.message);
-      //     setNotify({
-      //       open: true,
-      //       message: altRes.message,
-      //       severity: 'error',
-      //     });
-      //     return;
-      //   }
-      //   setFieldError('altOtp', '');
-      // }
+      /*
+      setFieldTouched('otp', true);
+      const res = await verifyOtp({ otp: values.otp, token });
+      if (res.status === true || res.status === false) { // Simple bypass for now as per "hide functionality"
+        // ... handled below
+      }
+      */
       if (!img) {
         setNotify({
           open: true,
@@ -232,7 +210,8 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
         email: values.email,
         dob: values.dob,
         gender: values.gender,
-        // otp: values.otp,
+        otp: values.otp,
+        altOtp: values.altOtp,
         employmentType: values.employmentType,
         organisation: values.organisation,
         annualIncome: values.annualIncome,
@@ -462,13 +441,6 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
                   onBlur={handleBlur}
                   onChange={(e) => {
                     handleChange(e);
-                    if (e.target.value.length === 10) {
-                      // sendOtp({ phoneNumber: e.target.value }).then((res) => {
-                      //   if (res.status === true) {
-                      //     setToken(res.data.token);
-                      //   }
-                      // });
-                    }
                   }}
                 />
               </Grid>
@@ -486,13 +458,6 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
                   onBlur={handleBlur}
                   onChange={(e) => {
                     handleChange(e);
-                    if (e.target.value.length === 10) {
-                      // sendOtp({ phoneNumber: e.target.value }).then((res) => {
-                      //   if (res.status === true) {
-                      //     setAltToken(res.data.token);
-                      //   }
-                      // });
-                    }
                   }}
                 />
               </Grid>
@@ -540,6 +505,7 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
                   </Select>
                 </FormControl>
               </Grid>
+              {/* 
               <Grid item xs={12} md={4}>
                 <TextField
                   name="otp"
@@ -562,6 +528,7 @@ function Customer({ step, setStep, setNotify, selectedUser, setSelectedUser }) {
                   onChange={handleChange}
                 />
               </Grid>
+              */}
               <Grid item xs={12} md={4}>
                 <FormControl fullWidth error={touched.employmentType && errors.employmentType && true}>
                   <InputLabel id="select-label">Select employment type</InputLabel>

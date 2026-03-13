@@ -92,7 +92,11 @@ export default function LoginForm() {
           <Typography
             sx={{
               textAlign: 'center',
-              color: 'red',
+              color: 'error.main',
+              bgcolor: 'error.lighter',
+              p: 1,
+              borderRadius: 1,
+              fontSize: '0.875rem',
             }}
           >
             {error}
@@ -105,6 +109,16 @@ export default function LoginForm() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              '&.Mui-focused fieldset': {
+                borderColor: '#8A1B9F',
+              },
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: '#8A1B9F',
+            },
+          }}
         />
         {step === 2 && userType !== 'branch' && (
           <TextField
@@ -123,6 +137,16 @@ export default function LoginForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '&.Mui-focused fieldset': {
+                  borderColor: '#8A1B9F',
+                },
+              },
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: '#8A1B9F',
+              },
+            }}
           />
         )}
         {step === 2 && userType === 'branch' && (
@@ -133,26 +157,42 @@ export default function LoginForm() {
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
             required
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '&.Mui-focused fieldset': {
+                  borderColor: '#8A1B9F',
+                },
+              },
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: '#8A1B9F',
+              },
+            }}
           />
         )}
       </Stack>
 
-      {/* <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-        <Link variant="subtitle2" underline="hover">
-          Forgot password?
-        </Link>
-      </Stack> */}
-
-      {step === 1 ? (
-        <LoadingButton
-          fullWidth
-          size="large"
-          type="button"
-          variant="contained"
-          loading={isDisable}
-          loadingIndicator={<CircularProgress color="inherit" size={16} />}
-          sx={{ my: 2 }}
-          onClick={() => {
+      <LoadingButton
+        fullWidth
+        size="large"
+        type="button"
+        variant="contained"
+        loading={isDisable}
+        loadingIndicator={<CircularProgress color="inherit" size={16} />}
+        sx={{ 
+          my: 3, 
+          py: 1.5,
+          bgcolor: '#8A1B9F', 
+          '&:hover': { 
+            bgcolor: '#6a1b9a',
+            border: '1px solid #FFD700',
+          },
+          boxShadow: '0 8px 16px 0 rgba(138, 27, 159, 0.24)',
+          fontWeight: 'bold',
+          fontSize: '1rem',
+          textTransform: 'none',
+        }}
+        onClick={() => {
+          if (step === 1) {
             if (!username) {
               setNotify({
                 open: true,
@@ -198,23 +238,10 @@ export default function LoginForm() {
                   setError(err.message);
                 });
             }
-          }}
-        >
-          <span>Next</span>
-        </LoadingButton>
-      ) : (
-        <LoadingButton
-          fullWidth
-          size="large"
-          variant="contained"
-          loading={isDisable}
-          loadingIndicator={<CircularProgress color="inherit" size={16} />}
-          sx={{ my: 2 }}
-          onClick={() => {
+          } else {
             setIsDisable(true);
             setError(null);
             if (userType === 'branch') {
-              // Verify otp
               verifyLoginOtp({ token, otp })
                 .then((data) => {
                   if (data.status === true) {
@@ -243,11 +270,11 @@ export default function LoginForm() {
                   setIsDisable(false);
                 });
             }
-          }}
-        >
-          Login
-        </LoadingButton>
-      )}
+          }
+        }}
+      >
+        {step === 1 ? 'Next' : 'Login'}
+      </LoadingButton>
     </>
   );
 }

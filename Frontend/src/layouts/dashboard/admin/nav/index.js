@@ -25,7 +25,7 @@ const StyledAccount = styled('div')(({ theme }) => ({
   alignItems: 'center',
   padding: theme.spacing(2, 2.5),
   borderRadius: Number(theme.shape.borderRadius) * 1.5,
-  backgroundColor: alpha(theme.palette.grey[500], 0.12),
+  backgroundColor: 'rgba(255, 255, 255, 0.08)',
 }));
 
 // ----------------------------------------------------------------------
@@ -52,6 +52,7 @@ export default function Nav({ openNav, onCloseNav }) {
     <Scrollbar
       sx={{
         height: 1,
+        bgcolor: '#8A1B9F',
         '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
       }}
     >
@@ -65,11 +66,11 @@ export default function Nav({ openNav, onCloseNav }) {
             <Avatar src={account.photoURL} alt="photoURL" />
 
             <Box sx={{ ml: 2 }}>
-              <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
+              <Typography variant="subtitle2" sx={{ color: '#fff' }}>
                 {auth.user.username ?? null}
               </Typography>
 
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
                 {auth.user.userType ?? null}
               </Typography>
             </Box>
@@ -98,8 +99,8 @@ export default function Nav({ openNav, onCloseNav }) {
           PaperProps={{
             sx: {
               width: NAV_WIDTH,
-              bgcolor: 'background.default',
-              borderRightStyle: 'dashed',
+              bgcolor: '#8A1B9F', // Brand Purple
+              borderRight: 'none',
             },
           }}
         >
@@ -113,7 +114,10 @@ export default function Nav({ openNav, onCloseNav }) {
             keepMounted: true,
           }}
           PaperProps={{
-            sx: { width: NAV_WIDTH },
+            sx: { 
+              width: NAV_WIDTH,
+              bgcolor: '#8A1B9F', // Brand Purple
+            },
           }}
         >
           {renderContent}

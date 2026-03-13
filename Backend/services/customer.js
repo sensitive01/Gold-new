@@ -162,10 +162,17 @@ async function sendOtp(payload) {
       6
     );
 
-    let res = await axios.get(
-      `https://pgapi.vispl.in/fe/api/v1/send?username= Atticagold.trans&password=hhwGK&unicode=false&from=BENGLD&to=${payload.phoneNumber}&text=Hi.%20Thanks%20for%20choosing%20 Attica%20Gold%20Company%20to%20serve%20you.%20The%20One%20Time%20Password%20to%20verify%20your%20phone%20number%20is%20${otp}.%20Validity%20for%20this%20OTP%20is%205%20minutes%20only.%20Call%20us%20if%20you%20have%20any%20queries%20:%206366111999.%20Visit%20us%20:%20https://www. Atticagoldcompany.com%20&dltContentId=1707168655011078843`
-    );
-    if (res.data.statusCode == 200 && res.data.state == "SUBMIT_ACCEPTED") {
+    // const text = `Hi. Your One Time Password to login MK Gold World is ${otp}. This OTP is valid for 5 minutes only.`;
+    // const url = `https://pgapi.vispl.in/fe/api/v1/send?username=mkgold.trans&password=hhwGK&unicode=false&from=MKGOLD&to=${payload.phoneNumber}&text=${encodeURIComponent(text)}&dltContentId=1707168542360758659`;
+    
+    // console.log("Sending OTP to:", payload.phoneNumber);
+    // console.log("OTP URL:", url);
+
+    // let res = await axios.get(url);
+    
+    // console.log("SMS API Response:", res.data);
+
+    // if (res.data.statusCode == 200 && res.data.state == "SUBMIT_ACCEPTED") {
       const token = jwt.sign(
         {
           sub: {
@@ -178,7 +185,7 @@ async function sendOtp(payload) {
         { expiresIn: "5m" }
       );
 
-      otpService.create({
+      await otpService.create({
         type: "customer",
         otp: otp,
         phoneNumber: payload.phoneNumber,
@@ -189,17 +196,21 @@ async function sendOtp(payload) {
         message: "OTP sent Successfully.",
         data: { token },
       };
-    } else {
-      return {
-        status: false,
-        message: "OTP not sent",
-        data: {},
-      };
-    }
+    // } 
+    
+    // else {
+    //   console.log("OTP failed with condition:", res.data.statusCode, res.data.state);
+    //   return {
+    //     status: false,
+    //     message: `OTP not sent: ${res.data?.message || res.data?.state || 'Unknown Provider Error'}`,
+    //     data: { providerResponse: res.data },
+    //   };
+    // }
   } catch (err) {
+    console.error("OTP Error exception:", err.message);
     return {
       status: false,
-      message: "OTP not sent",
+      message: `OTP Error: ${err.message}`,
       data: {},
     };
   }

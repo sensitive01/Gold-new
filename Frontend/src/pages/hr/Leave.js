@@ -147,10 +147,6 @@ export default function Leave() {
     },
   });
 
-  useEffect(() => {
-    fetchData();
-  }, [toggleContainer, fetchData]);
-
   const fetchData = useCallback(
     (
       query = {
@@ -167,6 +163,10 @@ export default function Leave() {
     },
     [values.fromDate, values.toDate]
   );
+
+  useEffect(() => {
+    fetchData();
+  }, [toggleContainer, fetchData]);
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);

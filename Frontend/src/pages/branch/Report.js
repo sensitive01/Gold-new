@@ -1,6 +1,6 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -80,9 +80,27 @@ export default function Report() {
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState(null);
-  const [filterName, setFilterName] = useState('');
+  const [filterName] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [data, setData] = useState([]);
+
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: moment()?.format("YYYY-MM-DD"),
+          $lte: moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      if (!query.branch) query.branch = branch._id;
+      consolidatedSaleReport(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [branch._id]
+  );
 
   useEffect(() => {
     setBranch(auth.user.branch);
@@ -93,22 +111,7 @@ export default function Report() {
       },
       branch: auth.user.branch._id,
     });
-  }, []);
-
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: moment()?.format("YYYY-MM-DD"),
-        $lte: moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    if (!query.branch) query.branch = branch._id;
-    consolidatedSaleReport(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  }, [auth.user.branch, fetchData]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -128,18 +131,6 @@ export default function Report() {
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
   const filteredData = applySortFilter(data, getComparator(order, orderBy), filterName);
   const isNotFound = !filteredData.length && !!filterName;
-
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    borderRadius: 3,
-    boxShadow: 24,
-    p: 4,
-  };
 
   return (
     <>

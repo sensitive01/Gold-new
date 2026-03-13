@@ -1,6 +1,6 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -153,26 +153,29 @@ export default function Release() {
     severity: 'success',
   });
 
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
+          $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      findRelease(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [values.fromDate, values.toDate]
+  );
+
   useEffect(() => {
     getBranch().then((data) => {
       setBranches(data.data);
     });
     fetchData();
-  }, []);
-
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
-        $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    findRelease(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  }, [fetchData]);
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -542,7 +545,7 @@ export default function Release() {
                     onChange={handleChange}
                   >
                     {branches.map((e) => (
-                      <MenuItem value={e._id}>
+                      <MenuItem key={e._id} value={e._id}>
                         {e.branchId} {e.branchName}
                       </MenuItem>
                     ))}

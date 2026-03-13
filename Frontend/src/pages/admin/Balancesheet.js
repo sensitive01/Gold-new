@@ -1,6 +1,6 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -137,24 +137,27 @@ export default function Balancesheet() {
     },
   });
 
+  const fetchData = useCallback(
+    (
+      query = {
+        fromDate: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
+        toDate: values.toDate ?? moment()?.format("YYYY-MM-DD"),
+      }
+    ) => {
+      getBalancesheet(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [values.fromDate, values.toDate]
+  );
+
   useEffect(() => {
     getBranch().then((data) => {
       setBranches(data.data);
     });
     fetchData();
-  }, []);
-
-  const fetchData = (
-    query = {
-      fromDate: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
-      toDate: values.toDate ?? moment()?.format("YYYY-MM-DD"),
-    }
-  ) => {
-    getBalancesheet(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  }, [fetchData]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -364,7 +367,7 @@ export default function Balancesheet() {
                     onChange={handleChange}
                   >
                     {branches.map((e) => (
-                      <MenuItem value={e._id}>
+                      <MenuItem key={e._id} value={e._id}>
                         {e.branchId} {e.branchName}
                       </MenuItem>
                     ))}

@@ -1,6 +1,6 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -109,6 +109,24 @@ export default function Fund() {
     severity: 'success',
   });
 
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: moment()?.format("YYYY-MM-DD"),
+          $lte: moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      if (!query.branch) query.branch = branch._id;
+      findFund(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [branch._id]
+  );
+
   useEffect(() => {
     setBranch(auth.user.branch);
     fetchData({
@@ -118,22 +136,7 @@ export default function Fund() {
       },
       branch: auth.user.branch._id,
     });
-  }, [toggleContainer]);
-
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: moment()?.format("YYYY-MM-DD"),
-        $lte: moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    if (!query.branch) query.branch = branch._id;
-    findFund(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  }, [auth.user.branch, fetchData, toggleContainer]);
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);

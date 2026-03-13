@@ -1,6 +1,7 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
 import { forwardRef, useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -288,6 +289,11 @@ export default function Support() {
       </FormControl>
     );
   }
+
+  Status.propTypes = {
+    id: PropTypes.string,
+    st: PropTypes.string,
+  };
 
   return (
     <>

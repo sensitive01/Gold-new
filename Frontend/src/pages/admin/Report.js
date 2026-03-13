@@ -98,7 +98,7 @@ export default function Report() {
   const [order, setOrder] = useState('asc');
   const [openBackdrop, setOpenBackdrop] = useState(true);
   const [orderBy, setOrderBy] = useState(null);
-  const [filterName, setFilterName] = useState('');
+  const [filterName] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [data, setData] = useState([]);
   const [toggleContainer, setToggleContainer] = useState(false);
@@ -284,7 +284,7 @@ export default function Report() {
                         <TableCell align="left">
                           <Button
                             variant="contained"
-                            onClick={(e) => {
+                            onClick={() => {
                               setOpenId({ date, type, branch, saleType });
                               setToggleContainer(!toggleContainer);
                               setToggleContainerType('view');

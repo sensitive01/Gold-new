@@ -1,6 +1,6 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -94,6 +94,22 @@ export default function Balancesheet() {
     severity: 'success',
   });
 
+  const fetchData = useCallback(
+    (
+      query = {
+        fromDate: moment()?.format("YYYY-MM-DD"),
+        toDate: moment()?.format("YYYY-MM-DD"),
+      }
+    ) => {
+      if (!query.branch) query.branch = branch._id;
+      getBalancesheet(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    [branch._id]
+  );
+
   useEffect(() => {
     setBranch(auth.user.branch);
     fetchData({
@@ -101,20 +117,7 @@ export default function Balancesheet() {
       fromDate: moment()?.format("YYYY-MM-DD"),
       toDate: moment()?.format("YYYY-MM-DD"),
     });
-  }, []);
-
-  const fetchData = (
-    query = {
-      fromDate: moment()?.format("YYYY-MM-DD"),
-      toDate: moment()?.format("YYYY-MM-DD"),
-    }
-  ) => {
-    if (!query.branch) query.branch = branch._id;
-    getBalancesheet(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  }, [auth.user.branch, fetchData]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -122,20 +125,6 @@ export default function Balancesheet() {
     setOrderBy(property);
   };
 
-  const handleClick = (event, _id) => {
-    const selectedIndex = selected.indexOf(_id);
-    let newSelected = [];
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, _id);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1));
-    }
-    setSelected(newSelected);
-  };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

@@ -144,17 +144,6 @@ export default function Ornament() {
     },
   });
 
-  useEffect(() => {
-    setBranch(auth.user?.branch || {});
-    fetchData({
-      createdAt: {
-        $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
-        $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
-      },
-      branch: auth.user.branch._id,
-    });
-  }, [auth.user.branch, values.fromDate, values.toDate, fetchData]);
-
   const fetchData = useCallback(
     (
       query = {
@@ -172,6 +161,17 @@ export default function Ornament() {
     },
     [branch._id, values.fromDate, values.toDate]
   );
+
+  useEffect(() => {
+    setBranch(auth.user?.branch || {});
+    fetchData({
+      createdAt: {
+        $gte: values.fromDate ?? moment()?.format("YYYY-MM-DD"),
+        $lte: values.toDate ?? moment()?.format("YYYY-MM-DD"),
+      },
+      branch: auth.user.branch._id,
+    });
+  }, [auth.user.branch, values.fromDate, values.toDate, fetchData]);
 
   const handleMoveSelected = () => {
     updateOrnament({ id: selected, status: 'moved' }).then(() => {

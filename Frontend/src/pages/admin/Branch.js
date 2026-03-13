@@ -1,6 +1,7 @@
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
 import { forwardRef, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import {
@@ -225,6 +226,11 @@ export default function Branch() {
       />
     );
   }
+
+  Status.propTypes = {
+    status: PropTypes.string,
+    _id: PropTypes.string,
+  };
 
   return (
     <>

@@ -1,14 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { Container, Grid, Link, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 // sections
 import { AppWidgetSummary } from '../../sections/@dashboard/app';
 
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
-  const theme = useTheme();
 
   return (
     <>

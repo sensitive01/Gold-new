@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { Backdrop, CircularProgress, Container, Grid, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+
 import { useEffect, useState } from 'react';
 // sections
 import { getCount } from '../../apis/admin/dashboard';
@@ -12,7 +12,6 @@ import { AppWidgetSummary } from '../../sections/@dashboard/app';
 export default function DashboardAppPage() {
   const [openBackdrop, setOpenBackdrop] = useState(true);
   const [count, setCount] = useState(null);
-  const theme = useTheme();
 
   useEffect(() => {
     getCount().then((data) => {

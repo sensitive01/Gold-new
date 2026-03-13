@@ -2,6 +2,7 @@ import { TextField, FormControl, InputLabel, Select, MenuItem, Card, Grid } from
 import { LoadingButton } from '@mui/lab';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { createExpense } from '../../../apis/accounts/expense';
 
 function CreateExpense(props) {
@@ -14,7 +15,7 @@ function CreateExpense(props) {
     status: Yup.string().required('Status is required'),
   });
 
-  const { handleSubmit, handleChange, handleBlur, values, touched, errors, setValues, resetForm } = useFormik({
+  const { handleSubmit, handleChange, handleBlur, values, touched, errors } = useFormik({
     initialValues: {
       type: '',
       amount: '',
@@ -126,5 +127,10 @@ function CreateExpense(props) {
     </Card>
   );
 }
+
+CreateExpense.propTypes = {
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default CreateExpense;

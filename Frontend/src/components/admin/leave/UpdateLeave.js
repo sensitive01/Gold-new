@@ -3,12 +3,21 @@ import { LoadingButton } from '@mui/lab';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { PickersDay, StaticDatePicker } from '@mui/x-date-pickers';
 import moment from 'moment';
 import { getLeaveById, updateLeave } from '../../../apis/admin/leave';
 import { getEmployee } from '../../../apis/admin/employee';
+
+const initialValues = {
+  employee: '',
+  leaveType: '',
+  dates: [],
+  note: '',
+  status: 'pending'
+};
 
 const CustomPickersDay = styled(PickersDay, {
   shouldForwardProp: (prop) => prop !== 'selected',
@@ -43,14 +52,6 @@ function UpdateLeave(props) {
     note: Yup.string().required('Note is required'),
     status: Yup.string().required('Status is required'),
   });
-
-  const initialValues = {
-    employee: '',
-    leaveType: '',
-    dates: [],
-    note: '',
-    status: 'pending'
-  };
 
   const { handleSubmit, handleChange, handleBlur, values, touched, errors, setValues, resetForm } = useFormik({
     initialValues: { ...initialValues },
@@ -103,7 +104,7 @@ function UpdateLeave(props) {
         setValues(payload ?? {});
       });
     }
-  }, [props.id]);
+  }, [props.id, initialValues, resetForm, setValues]);
 
   return (
     <Card sx={{ p: 4, my: 4 }}>
@@ -132,7 +133,7 @@ function UpdateLeave(props) {
                 }}
               >
                 {employees.map((e) => (
-                  <MenuItem value={e._id}>{e.employeeId} {e.name}</MenuItem>
+                  <MenuItem key={e._id} value={e._id}>{e.employeeId} {e.name}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -211,5 +212,11 @@ function UpdateLeave(props) {
     </Card>
   );
 }
+
+UpdateLeave.propTypes = {
+  id: PropTypes.string,
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default UpdateLeave;

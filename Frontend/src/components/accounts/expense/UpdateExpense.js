@@ -1,9 +1,18 @@
 import { TextField, FormControl, InputLabel, Select, MenuItem, Card, Grid } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { getExpenseById, updateExpense } from '../../../apis/accounts/expense';
+
+const initialValues = {
+  type: '',
+  amount: '',
+  from: '',
+  note: '',
+  status: '',
+};
 
 function UpdateExpense(props) {
   // Form validation
@@ -13,14 +22,6 @@ function UpdateExpense(props) {
     note: Yup.string().required('Note is required'),
     status: Yup.string().required('Status is required'),
   });
-
-  const initialValues = {
-    type: '',
-    amount: '',
-    from: '',
-    note: '',
-    status: '',
-  };
 
   const { handleSubmit, handleChange, handleBlur, values, touched, errors, setValues, resetForm } = useFormik({
     initialValues: { ...initialValues },
@@ -53,7 +54,7 @@ function UpdateExpense(props) {
         setValues(data.data ?? {});
       });
     }
-  }, [props.id]);
+  }, [props.id, initialValues, resetForm, setValues]);
 
   return (
     <Card sx={{ p: 4, my: 4 }}>
@@ -126,5 +127,11 @@ function UpdateExpense(props) {
     </Card>
   );
 }
+
+UpdateExpense.propTypes = {
+  id: PropTypes.string,
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default UpdateExpense;

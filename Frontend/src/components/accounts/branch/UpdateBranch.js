@@ -3,9 +3,27 @@ import { LoadingButton } from '@mui/lab';
 import { useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { getBranchById, updateBranch } from '../../../apis/accounts/branch';
 import { createFile, deleteFileById } from '../../../apis/accounts/fileupload';
 import global from '../../../utils/global';
+
+const initialValues = {
+  branchId: '',
+  branchName: '',
+  gstNumber: '',
+  address: '',
+  area: '',
+  city: '',
+  state: '',
+  pincode: '',
+  landmark: '',
+  longitude: '',
+  latitude: '',
+  isHeadOffice: '',
+  image: {},
+  oldImage: {},
+};
 
 function UpdateBranch(props) {
   // Form validation
@@ -26,23 +44,6 @@ function UpdateBranch(props) {
     latitude: Yup.string().required('Latitude is required'),
     isHeadOffice: Yup.string().required('Is Head Office is required'),
   });
-
-  const initialValues = {
-    branchId: '',
-    branchName: '',
-    gstNumber: '',
-    address: '',
-    area: '',
-    city: '',
-    state: '',
-    pincode: '',
-    landmark: '',
-    longitude: '',
-    latitude: '',
-    isHeadOffice: '',
-    image: {},
-    oldImage: {},
-  };
 
   const { handleSubmit, handleChange, handleBlur, values, touched, errors, setFieldValue, setValues, resetForm } =
     useFormik({
@@ -79,7 +80,7 @@ function UpdateBranch(props) {
               formData.append('uploadName', 'branch_image');
               formData.append('uploadType', 'image');
               formData.append('uploadedFile', values.image);
-              createFile(formData).then((res) => {
+              createFile(formData).then(() => {
                 deleteFileById(values.oldImage._id);
               });
             }
@@ -116,7 +117,7 @@ function UpdateBranch(props) {
         });
       });
     }
-  }, [props.id]);
+  }, [props.id, initialValues, resetForm, setValues]);
 
   return (
     <Card sx={{ p: 4, my: 4 }}>
@@ -207,7 +208,9 @@ function UpdateBranch(props) {
                 onChange={handleChange}
               >
                 {global.states.map((state) => (
-                  <MenuItem value={state}>{state}</MenuItem>
+                  <MenuItem key={state} value={state}>
+                    {state}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -225,7 +228,9 @@ function UpdateBranch(props) {
                 onChange={handleChange}
               >
                 {global.cities[values.state]?.split('|')?.map((city) => (
-                  <MenuItem value={city}>{city}</MenuItem>
+                  <MenuItem key={city} value={city}>
+                    {city}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -303,5 +308,11 @@ function UpdateBranch(props) {
     </Card>
   );
 }
+
+UpdateBranch.propTypes = {
+  id: PropTypes.string,
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default UpdateBranch;

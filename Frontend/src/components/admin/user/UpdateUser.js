@@ -3,9 +3,18 @@ import { LoadingButton } from '@mui/lab';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { getUserById, updateUser } from '../../../apis/admin/user';
 import { getLoginNotCreatedEmployee } from '../../../apis/admin/employee';
 import { getBranch } from '../../../apis/admin/branch';
+
+const initialValues = {
+  username: '',
+  password: '',
+  userType: '',
+  employee: '',
+  branch: '',
+};
 
 function UpdateUser(props) {
   const [employees, setEmloyees] = useState([]);
@@ -28,14 +37,6 @@ function UpdateUser(props) {
     userType: Yup.string().required('User type is required'),
     employee: Yup.string().required('Employee Id is required'),
   });
-
-  const initialValues = {
-    username: '',
-    password: '',
-    userType: '',
-    employee: '',
-    branch: '',
-  };
 
   const { handleSubmit, handleChange, handleBlur, values, touched, errors, setValues, resetForm } = useFormik({
     initialValues: { ...initialValues },
@@ -83,7 +84,7 @@ function UpdateUser(props) {
         });
       });
     }
-  }, [props.id]);
+  }, [props.id, initialValues, resetForm, setValues]);
 
   return (
     <Card sx={{ p: 4, my: 4 }}>
@@ -174,7 +175,7 @@ function UpdateUser(props) {
                 onChange={handleChange}
               >
                 {employees.map((e) => (
-                  <MenuItem value={e._id}>
+                  <MenuItem key={e._id} value={e._id}>
                     {e.employeeId} {e.name}
                   </MenuItem>
                 ))}
@@ -191,5 +192,11 @@ function UpdateUser(props) {
     </Card>
   );
 }
+
+UpdateUser.propTypes = {
+  id: PropTypes.string,
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default UpdateUser;

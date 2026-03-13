@@ -3,8 +3,18 @@ import { LoadingButton } from '@mui/lab';
 import { useEffect, useState, useRef } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { getFundById, updateFund } from '../../../apis/accounts/fund';
 import { getBranch } from '../../../apis/accounts/branch';
+
+const initialValues = {
+  type: '',
+  amount: '',
+  from: '',
+  to: '',
+  note: '',
+  status: 'pending',
+};
 
 function UpdateFund(props) {
   const [branches, setBranches] = useState([]);
@@ -30,15 +40,6 @@ function UpdateFund(props) {
     note: Yup.string().required('Note is required'),
     status: Yup.string().required('Status is required'),
   });
-
-  const initialValues = {
-    type: '',
-    amount: '',
-    from: '',
-    to: '',
-    note: '',
-    status: 'pending',
-  };
 
   const { handleSubmit, handleChange, handleBlur, values, touched, errors, setFieldValue, setValues, resetForm } =
     useFormik({
@@ -79,7 +80,7 @@ function UpdateFund(props) {
         setValues(payload ?? {});
       });
     }
-  }, [props.id]);
+  }, [props.id, initialValues, resetForm, setValues]);
 
   useEffect(() => {
     if (values.type === 'fund_request') {
@@ -216,5 +217,11 @@ function UpdateFund(props) {
     </Card>
   );
 }
+
+UpdateFund.propTypes = {
+  id: PropTypes.string,
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default UpdateFund;

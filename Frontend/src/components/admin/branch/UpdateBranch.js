@@ -80,7 +80,7 @@ function UpdateBranch(props) {
               formData.append('uploadName', 'branch_image');
               formData.append('uploadType', 'image');
               formData.append('uploadedFile', values.image);
-              createFile(formData).then((res) => {
+              createFile(formData).then(() => {
                 if (values.oldImage?._id) {
                   deleteFileById(values.oldImage._id);
                 }

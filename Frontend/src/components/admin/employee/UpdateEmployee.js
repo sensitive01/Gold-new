@@ -7,7 +7,22 @@ import { LoadingButton } from '@mui/lab';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { getEmployeeById, updateEmployee } from '../../../apis/admin/employee';
+
+const initialValues = {
+  name: '',
+  gender: '',
+  designation: '',
+  salary: '',
+  employeeId: '',
+  phoneNumber: '',
+  alternatePhoneNumber: '',
+  dob: '',
+  shiftStartTime: '',
+  shiftEndTime: '',
+  status: '',
+};
 
 function UpdateEmployee(props) {
   // Form validation
@@ -29,20 +44,6 @@ function UpdateEmployee(props) {
     shiftEndTime: Yup.string().required('Logout Time is required'),
     status: Yup.string().required('Status is required'),
   });
-
-  const initialValues = {
-    name: '',
-    gender: '',
-    designation: '',
-    salary: '',
-    employeeId: '',
-    phoneNumber: '',
-    alternatePhoneNumber: '',
-    dob: '',
-    shiftStartTime: '',
-    shiftEndTime: '',
-    status: '',
-  };
 
   const { handleSubmit, handleChange, handleBlur, values, touched, errors, setValues, setFieldValue, resetForm } =
     useFormik({
@@ -76,7 +77,7 @@ function UpdateEmployee(props) {
         setValues(data.data ?? {});
       });
     }
-  }, [props.id]);
+  }, [props.id, initialValues, resetForm, setValues]);
 
   return (
     <Card sx={{ p: 4, my: 4 }}>
@@ -249,5 +250,11 @@ function UpdateEmployee(props) {
     </Card>
   );
 }
+
+UpdateEmployee.propTypes = {
+  id: PropTypes.string,
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default UpdateEmployee;

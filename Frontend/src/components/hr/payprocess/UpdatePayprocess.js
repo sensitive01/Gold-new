@@ -4,8 +4,17 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { getPayprocessById, updatePayprocess } from '../../../apis/hr/payprocess';
 import { getEmployee } from '../../../apis/hr/employee';
+
+const initialValues = {
+  employee: '',
+  type: '',
+  amount: '',
+  note: '',
+  loggedUsername: '',
+};
 
 function UpdatePayprocess(props) {
   const [employees, setEmloyees] = useState([]);
@@ -15,14 +24,6 @@ function UpdatePayprocess(props) {
     type: Yup.string().required('Type is required'),
     amount: Yup.string().required('Amount is required'),
   });
-
-  const initialValues = {
-    employee: '',
-    type: '',
-    amount: '',
-    note: '',
-    loggedUsername: '',
-  };
 
   const { handleSubmit, handleChange, handleBlur, values, touched, errors, setValues, setFieldValue, resetForm } =
     useFormik({
@@ -71,7 +72,7 @@ function UpdatePayprocess(props) {
         });
       });
     }
-  }, [props.id]);
+  }, [props.id, initialValues, resetForm, setValues]);
 
   const auth = useSelector((state) => state.auth);
 
@@ -169,5 +170,11 @@ function UpdatePayprocess(props) {
     </Card>
   );
 }
+
+UpdatePayprocess.propTypes = {
+  id: PropTypes.string,
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default UpdatePayprocess;

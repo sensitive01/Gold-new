@@ -3,8 +3,15 @@ import { LoadingButton } from '@mui/lab';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { getGoldRateById, updateGoldRate } from '../../../apis/accounts/gold-rate';
 import { getState } from '../../../apis/accounts/branch';
+
+const initialValues = {
+  rate: '',
+  type: '',
+  state: '',
+};
 
 function UpdateGoldRate(props) {
   const [data, setData] = useState([]);
@@ -21,12 +28,6 @@ function UpdateGoldRate(props) {
     type: Yup.string().required('Type is required'),
     state: Yup.string().required('State is required'),
   });
-
-  const initialValues = {
-    rate: '',
-    type: '',
-    state: '',
-  };
 
   const { handleSubmit, handleChange, handleBlur, values, touched, errors, setValues, resetForm } = useFormik({
     initialValues: { ...initialValues },
@@ -59,7 +60,7 @@ function UpdateGoldRate(props) {
         setValues(data.data);
       });
     }
-  }, [props.id]);
+  }, [props.id, resetForm, setValues]);
 
   return (
     <Card sx={{ p: 4, my: 4 }}>
@@ -112,8 +113,10 @@ function UpdateGoldRate(props) {
                 onBlur={handleBlur}
                 onChange={handleChange}
               >
-                {data.map((e) => (
-                  <MenuItem value={e}>{e}</MenuItem>
+                 {data.map((e) => (
+                  <MenuItem key={e} value={e}>
+                    {e}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -128,5 +131,11 @@ function UpdateGoldRate(props) {
     </Card>
   );
 }
+
+UpdateGoldRate.propTypes = {
+  id: PropTypes.string,
+  setNotify: PropTypes.func,
+  setToggleContainer: PropTypes.func,
+};
 
 export default UpdateGoldRate;

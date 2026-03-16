@@ -179,6 +179,7 @@ export default function LoginForm() {
           my: 3, 
           py: 1.5,
           bgcolor: '#8A1B9F', 
+          color: '#fff',
           '&:hover': { 
             bgcolor: '#6a1b9a',
             border: '1px solid #FFD700',

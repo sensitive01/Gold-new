@@ -212,6 +212,12 @@ export default function Ornament() {
               updateOrnament({
                 id,
                 status: e.target.value,
+              }).then(() => {
+                setNotify({
+                  open: true,
+                  message: 'Status Updated Successfully!',
+                  severity: 'success',
+                });
               });
             }
           }}

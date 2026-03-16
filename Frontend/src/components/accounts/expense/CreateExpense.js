@@ -3,6 +3,7 @@ import { LoadingButton } from '@mui/lab';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
+import confetti from 'canvas-confetti';
 import { createExpense } from '../../../apis/accounts/expense';
 
 function CreateExpense(props) {
@@ -39,6 +40,12 @@ function CreateExpense(props) {
             open: true,
             message: 'Expense created',
             severity: 'success',
+          });
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#8A1B9F', '#FFD700', '#ffffff']
           });
         }
       });

@@ -48,6 +48,19 @@ export default function GlobalStyles() {
           margin: 0,
           padding: 0,
         },
+        '@keyframes credPulse': {
+          '0%': { boxShadow: '0 0 0 0 rgba(138, 27, 159, 0.4)' },
+          '70%': { boxShadow: '0 0 0 10px rgba(138, 27, 159, 0)' },
+          '100%': { boxShadow: '0 0 0 0 rgba(138, 27, 159, 0)' },
+        },
+        '@keyframes credGlow': {
+          'from': { filter: 'drop-shadow(0 0 2px #FFD700)' },
+          'to': { filter: 'drop-shadow(0 0 8px #FFD700)' },
+        },
+        '.cred-success-glow': {
+          animation: 'credPulse 2s infinite',
+          borderRadius: '12px',
+        }
       }}
     />
   );

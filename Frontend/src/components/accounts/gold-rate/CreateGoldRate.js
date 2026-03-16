@@ -36,7 +36,7 @@ function CreateGoldRate(props) {
         if (data.status === false) {
           props.setNotify({
             open: true,
-            message: 'Gold rate not created',
+            message: 'Gold Rate Not Created!',
             severity: 'error',
           });
         } else {
@@ -46,7 +46,7 @@ function CreateGoldRate(props) {
           resetForm();
           props.setNotify({
             open: true,
-            message: 'Gold rate created',
+            message: 'Gold Rate Created Successfully!',
             severity: 'success',
           });
         }

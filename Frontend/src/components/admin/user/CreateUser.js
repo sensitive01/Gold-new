@@ -1,8 +1,10 @@
 import { TextField, FormControl, InputLabel, Select, MenuItem, Card, Grid } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { createUser } from '../../../apis/admin/user';
 import { getLoginNotCreatedEmployee } from '../../../apis/admin/employee';
 import { getBranch } from '../../../apis/admin/branch';
@@ -70,7 +72,7 @@ function CreateUser(props) {
           resetForm();
           props.setNotify({
             open: true,
-            message: 'User created',
+            message: 'User Created Successfully!',
             severity: 'success',
           });
         }

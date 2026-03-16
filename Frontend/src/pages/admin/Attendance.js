@@ -225,6 +225,11 @@ export default function Attendance() {
       fetchData();
       handleCloseDeleteModal();
       setSelected(selected.filter((e) => e !== openId));
+      setNotify({
+        open: true,
+        message: 'Attendance Deleted Successfully!',
+        severity: 'success',
+      });
     });
   };
 
@@ -235,7 +240,7 @@ export default function Attendance() {
       setSelected([]);
       setNotify({
         open: true,
-        message: 'Attendance deleted',
+        message: 'Attendance Deleted Successfully!',
         severity: 'success',
       });
     });

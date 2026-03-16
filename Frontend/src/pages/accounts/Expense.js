@@ -50,6 +50,7 @@ import Label from '../../components/label';
 import Scrollbar from '../../components/scrollbar';
 // sections
 import { ExpenseListHead, ExpenseListToolbar } from '../../sections/@dashboard/expense';
+import SuccessModal from '../../components/success-modal';
 // mock
 import { deleteExpenseById, getExpense, updateExpense } from '../../apis/accounts/expense';
 
@@ -323,27 +324,35 @@ export default function Expense() {
         <title> Expense | MK Gold </title>
       </Helmet>
 
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={notify.open}
-        onClose={() => {
-          setNotify({ ...notify, open: false });
-        }}
-        autoHideDuration={3000}
-      >
-        <Alert
+      {notify.severity === 'success' ? (
+        <SuccessModal
+          open={notify.open}
+          message={notify.message}
+          onClose={() => setNotify({ ...notify, open: false })}
+        />
+      ) : (
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={notify.open}
           onClose={() => {
             setNotify({ ...notify, open: false });
           }}
-          severity={notify.severity}
-          sx={{ width: '100%', color: 'white' }}
+          autoHideDuration={3000}
         >
-          {notify.message}
-        </Alert>
-      </Snackbar>
+          <Alert
+            onClose={() => {
+              setNotify({ ...notify, open: false });
+            }}
+            severity={notify.severity}
+            sx={{ width: '100%', color: 'white' }}
+          >
+            {notify.message}
+          </Alert>
+        </Snackbar>
+      )}
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>

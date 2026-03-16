@@ -86,7 +86,7 @@ function CreateBranch(props) {
             resetForm();
             props.setNotify({
               open: true,
-              message: 'Branch created',
+              message: 'Branch Created Successfully!',
               severity: 'success',
             });
           }

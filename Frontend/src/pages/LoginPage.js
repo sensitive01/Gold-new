@@ -95,7 +95,7 @@ export default function LoginPage() {
                 p: 4,
                 bgcolor: 'background.paper',
                 borderRadius: 2,
-                boxShadow: (theme) => theme.customShadows.z8,
+                boxShadow: (theme) => theme.customShadows.z24,
                 textAlign: 'center',
               }}
             >

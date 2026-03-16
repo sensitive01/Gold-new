@@ -89,7 +89,7 @@ function UpdateBranch(props) {
             props.setToggleContainer(false);
             props.setNotify({
               open: true,
-              message: 'Branch updated',
+              message: 'Branch Updated Successfully!',
               severity: 'success',
             });
           }

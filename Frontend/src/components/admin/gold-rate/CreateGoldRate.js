@@ -48,7 +48,7 @@ function CreateGoldRate(props) {
           resetForm();
           props.setNotify({
             open: true,
-            message: 'Gold rate created',
+            message: 'Gold Rate Created Successfully!',
             severity: 'success',
           });
         }

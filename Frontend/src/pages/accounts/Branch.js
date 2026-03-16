@@ -182,6 +182,11 @@ export default function Branch() {
       fetchData();
       handleCloseDeleteModal();
       setSelected(selected.filter((e) => e !== openId));
+      setNotify({
+        open: true,
+        message: 'Branch Deleted Successfully!',
+        severity: 'success',
+      });
     });
   };
 

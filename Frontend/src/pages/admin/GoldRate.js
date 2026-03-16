@@ -46,6 +46,7 @@ import Iconify from '../../components/iconify';
 import Scrollbar from '../../components/scrollbar';
 // sections
 import { GoldRateListHead, GoldRateListToolbar } from '../../sections/@dashboard/gold-rate';
+import SuccessModal from '../../components/success-modal';
 // mock
 import { deleteGoldRateById, getGoldRate } from '../../apis/admin/gold-rate';
 
@@ -273,27 +274,35 @@ export default function GoldRate() {
         <title> Gold Rate | MK Gold </title>
       </Helmet>
 
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={notify.open}
-        onClose={() => {
-          setNotify({ ...notify, open: false });
-        }}
-        autoHideDuration={3000}
-      >
-        <Alert
+      {notify.severity === 'success' ? (
+        <SuccessModal
+          open={notify.open}
+          message={notify.message}
+          onClose={() => setNotify({ ...notify, open: false })}
+        />
+      ) : (
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={notify.open}
           onClose={() => {
             setNotify({ ...notify, open: false });
           }}
-          severity={notify.severity}
-          sx={{ width: '100%', color: 'white' }}
+          autoHideDuration={3000}
         >
-          {notify.message}
-        </Alert>
-      </Snackbar>
+          <Alert
+            onClose={() => {
+              setNotify({ ...notify, open: false });
+            }}
+            severity={notify.severity}
+            sx={{ width: '100%', color: 'white' }}
+          >
+            {notify.message}
+          </Alert>
+        </Snackbar>
+      )}
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>

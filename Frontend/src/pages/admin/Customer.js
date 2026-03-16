@@ -228,6 +228,11 @@ export default function Customer() {
       fetchData();
       handleCloseDeleteModal();
       setSelected(selected.filter((e) => e !== openId));
+      setNotify({
+        open: true,
+        message: 'Customer Deleted Successfully!',
+        severity: 'success',
+      });
     });
   };
 
@@ -238,7 +243,7 @@ export default function Customer() {
       setSelected([]);
       setNotify({
         open: true,
-        message: 'Customer deleted',
+        message: 'Customer Deleted Successfully!',
         severity: 'success',
       });
     });

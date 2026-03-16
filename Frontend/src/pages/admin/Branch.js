@@ -178,6 +178,11 @@ export default function Branch() {
       fetchData();
       handleCloseDeleteModal();
       setSelected(selected.filter((e) => e !== openId));
+      setNotify({
+        open: true,
+        message: 'Branch Deleted Successfully!',
+        severity: 'success',
+      });
     });
   };
 
@@ -188,7 +193,7 @@ export default function Branch() {
       setSelected([]);
       setNotify({
         open: true,
-        message: 'Branch deleted',
+        message: 'Branch Deleted Successfully!',
         severity: 'success',
       });
     });
@@ -221,6 +226,11 @@ export default function Branch() {
         onChange={(e) => {
           updateBranch(props._id, { status: e.target.checked ? 'active' : 'deactive' }).then((data) => {
             setStatus(data.data.status === 'active');
+            setNotify({
+              open: true,
+              message: `Branch ${e.target.checked ? 'Activated' : 'Deactivated'} Successfully!`,
+              severity: 'success',
+            });
           });
         }}
       />

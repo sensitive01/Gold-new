@@ -4,6 +4,7 @@ import { LoadingButton } from '@mui/lab';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { getGoldRateById, updateGoldRate } from '../../../apis/admin/gold-rate';
 import { getState } from '../../../apis/admin/branch';
 
@@ -44,7 +45,7 @@ function UpdateGoldRate(props) {
           props.setToggleContainer(false);
           props.setNotify({
             open: true,
-            message: 'Gold rate updated',
+            message: 'Gold Rate Updated Successfully!',
             severity: 'success',
           });
         }

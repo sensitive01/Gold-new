@@ -185,6 +185,11 @@ export default function Employee() {
       fetchData();
       handleCloseDeleteModal();
       setSelected(selected.filter((e) => e !== openId));
+      setNotify({
+        open: true,
+        message: 'Employee Deleted Successfully!',
+        severity: 'success',
+      });
     });
   };
 
@@ -195,7 +200,7 @@ export default function Employee() {
       setSelected([]);
       setNotify({
         open: true,
-        message: 'Employee deleted',
+        message: 'Employee Deleted Successfully!',
         severity: 'success',
       });
     });

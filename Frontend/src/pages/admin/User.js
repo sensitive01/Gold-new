@@ -224,6 +224,11 @@ export default function User() {
       fetchData();
       handleCloseDeleteModal();
       setSelected(selected.filter((e) => e !== openId));
+      setNotify({
+        open: true,
+        message: 'User Deleted Successfully!',
+        severity: 'success',
+      });
     });
   };
 
@@ -234,7 +239,7 @@ export default function User() {
       setSelected([]);
       setNotify({
         open: true,
-        message: 'User deleted',
+        message: 'User Deleted Successfully!',
         severity: 'success',
       });
     });
@@ -285,6 +290,11 @@ export default function User() {
         onChange={(e) => {
           updateUser(props._id, { status: e.target.checked ? 'active' : 'deactive' }).then((data) => {
             setStatus(data.data.status === 'active');
+            setNotify({
+              open: true,
+              message: `User ${e.target.checked ? 'Activated' : 'Deactivated'} Successfully!`,
+              severity: 'success',
+            });
           });
         }}
       />

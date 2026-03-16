@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
+import confetti from 'canvas-confetti';
 import { getGoldRateById, updateGoldRate } from '../../../apis/accounts/gold-rate';
 import { getState } from '../../../apis/accounts/branch';
 
@@ -46,6 +47,12 @@ function UpdateGoldRate(props) {
             open: true,
             message: 'Gold rate updated',
             severity: 'success',
+          });
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#8A1B9F', '#FFD700', '#ffffff']
           });
         }
       });

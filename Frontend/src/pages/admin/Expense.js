@@ -232,6 +232,11 @@ export default function Expense() {
       fetchData();
       handleCloseDeleteModal();
       setSelected(selected.filter((e) => e !== openId));
+      setNotify({
+        open: true,
+        message: 'Expense Deleted Successfully!',
+        severity: 'success',
+      });
     });
   };
 
@@ -242,7 +247,7 @@ export default function Expense() {
       setSelected([]);
       setNotify({
         open: true,
-        message: 'Expense deleted',
+        message: 'Expense Deleted Successfully!',
         severity: 'success',
       });
     });
@@ -293,6 +298,11 @@ export default function Expense() {
             updateExpense(props._id, { status: 'approved' }).then(() => {
               getExpense().then((data) => {
                 setData(data.data);
+                setNotify({
+                  open: true,
+                  message: 'Expense Approved Successfully!',
+                  severity: 'success',
+                });
               });
             });
           }}
@@ -307,6 +317,11 @@ export default function Expense() {
             updateExpense(props._id, { status: 'rejected' }).then(() => {
               getExpense().then((data) => {
                 setData(data.data);
+                setNotify({
+                  open: true,
+                  message: 'Expense Rejected Successfully!',
+                  severity: 'success',
+                });
               });
             });
           }}

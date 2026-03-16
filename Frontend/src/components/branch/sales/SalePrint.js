@@ -129,7 +129,14 @@ export default function SalePrint({ id }) {
       {data?.status?.toLowerCase() === 'approved' && (
         <Button
           variant="contained"
-          startIcon={<Iconify icon={'material-symbols:print'} sx={{ mr: 2 }} />}
+          sx={{
+            bgcolor: '#FFD700',
+            color: 'primary.main',
+            '&:hover': {
+              bgcolor: '#FFD700',
+            },
+          }}
+          startIcon={<Iconify icon={'material-symbols:print'} sx={{ mr: 2, color: 'primary.main' }} />}
           onClick={() => {
             const content = document.getElementById('pdf');
             const pri = document.getElementById('iframe').contentWindow;

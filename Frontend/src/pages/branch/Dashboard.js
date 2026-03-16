@@ -15,7 +15,7 @@ export default function DashboardAppPage() {
       </Helmet>
 
       <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ mb: 5 }}>
+        <Typography variant="h4" sx={{ mb: 5, color: '#fff' }}>
           Hi, Welcome back
         </Typography>
 
@@ -26,9 +26,9 @@ export default function DashboardAppPage() {
                 title="Customers"
                 total={false}
                 icon={'mdi:account-group'}
-                bgColor="#8A1B9F"
-                iconColor="#FFD700"
-                textColor="#fff"
+                bgColor="#fff"
+                iconColor="#8A1B9F"
+                textColor="#000"
               />
             </Link>
           </Grid>
@@ -52,9 +52,9 @@ export default function DashboardAppPage() {
                 title="Expenses"
                 total={false}
                 icon={'mdi:wallet'}
-                bgColor="#8A1B9F"
-                iconColor="#FFD700"
-                textColor="#fff"
+                bgColor="#fff"
+                iconColor="#8A1B9F"
+                textColor="#000"
               />
             </Link>
           </Grid>
@@ -78,9 +78,9 @@ export default function DashboardAppPage() {
                 title="Leave"
                 total={false}
                 icon={'mdi:calendar-remove'}
-                bgColor="#8A1B9F"
-                iconColor="#FFD700"
-                textColor="#fff"
+                bgColor="#fff"
+                iconColor="#8A1B9F"
+                textColor="#000"
               />
             </Link>
           </Grid>

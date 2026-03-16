@@ -350,10 +350,6 @@ export default function Attendance() {
     },
   });
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
   const fetchData = useCallback(
     (
       query = {
@@ -370,6 +366,10 @@ export default function Attendance() {
     },
     [values.fromDate, values.toDate]
   );
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -514,7 +514,7 @@ export default function Attendance() {
 
       <Container maxWidth="xl">
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Attendance
           </Typography>
         </Stack>
@@ -555,7 +555,7 @@ export default function Attendance() {
                 Export
               </Button>
 
-              <p>
+              <p style={{ color: '#fff' }}>
                 From Date: {values.fromDate ? moment(values.fromDate).format('YYYY-MM-DD') : ''}, To Date:{' '}
                 {values.toDate ? moment(values.toDate).format('YYYY-MM-DD') : ''}
               </p>

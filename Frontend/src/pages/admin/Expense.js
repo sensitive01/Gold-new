@@ -351,7 +351,7 @@ export default function Expense() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Expense
           </Typography>
           <Stack direction="row" alignItems="center" justifyContent="space-between" gap={2}>
@@ -385,7 +385,7 @@ export default function Expense() {
           </Stack>
         </Stack>
 
-        <p>
+        <p style={{ color: '#fff' }}>
           From Date: {values.fromDate ? moment(values.fromDate).format('YYYY-MM-DD') : ''}, To Date:{' '}
           {values.toDate ? moment(values.toDate).format('YYYY-MM-DD') : ''}
         </p>
@@ -521,7 +521,7 @@ export default function Expense() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'update' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Update Expense
           </Typography>
           <Button

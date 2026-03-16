@@ -310,7 +310,7 @@ export default function Release() {
 
       <Container maxWidth="xl">
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Release
           </Typography>
           <Button
@@ -322,7 +322,7 @@ export default function Release() {
           </Button>
         </Stack>
 
-        <p>
+        <p style={{ color: '#fff' }}>
           From Date: {values.fromDate ? moment(values.fromDate).format('YYYY-MM-DD') : ''}, To Date:{' '}
           {values.toDate ? moment(values.toDate).format('YYYY-MM-DD') : ''}, Branch:{' '}
           {branches.find((e) => e._id === values.branch)?.branchName}, Phone Number: {values.phoneNumber}

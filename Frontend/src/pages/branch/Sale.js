@@ -264,7 +264,7 @@ export default function Sale() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Sale
           </Typography>
           <Button
@@ -407,7 +407,7 @@ export default function Sale() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'create' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Create Sale
           </Typography>
           <Button
@@ -429,7 +429,7 @@ export default function Sale() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'print' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Invoice
           </Typography>
           <Button
@@ -451,7 +451,7 @@ export default function Sale() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'detail' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Sale Details
           </Typography>
           <Button

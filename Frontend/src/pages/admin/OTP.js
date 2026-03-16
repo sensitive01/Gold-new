@@ -100,10 +100,6 @@ export default function OTP() {
     severity: 'success',
   });
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
   const fetchData = useCallback(
     (
       query = {
@@ -120,6 +116,10 @@ export default function OTP() {
     },
     []
   );
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -246,7 +246,7 @@ export default function OTP() {
 
       <Container maxWidth="xl">
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             OTP
           </Typography>
         </Stack>

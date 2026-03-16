@@ -251,7 +251,7 @@ export default function Leave() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Leave
           </Typography>
           <Button
@@ -397,7 +397,7 @@ export default function Leave() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'create' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Create Leave
           </Typography>
           <Button
@@ -419,7 +419,7 @@ export default function Leave() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'update' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Update Leave
           </Typography>
           <Button

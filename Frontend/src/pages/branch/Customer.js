@@ -262,7 +262,7 @@ export default function Customer() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Customer
           </Typography>
           <Button
@@ -401,7 +401,7 @@ export default function Customer() {
       {toggleContainer === true && (toggleContainerType === 'create') === true && (
         <Container maxWidth="xl">
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
               Create Customer
             </Typography>
             <Button
@@ -425,7 +425,7 @@ export default function Customer() {
           sx={{ display: toggleContainer === true && toggleContainerType === 'detail' ? 'block' : 'none' }}
         >
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
               Customer Details
             </Typography>
             <Button

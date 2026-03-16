@@ -248,7 +248,7 @@ export default function Payprocess() {
       {toggleContainer === false && (
         <Container maxWidth="xl">
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
               Payprocess
             </Typography>
             <Button
@@ -380,7 +380,7 @@ export default function Payprocess() {
       {toggleContainer === true && toggleContainerType === 'create' && (
         <Container maxWidth="xl">
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
               Create Payprocess
             </Typography>
             <Button
@@ -401,7 +401,7 @@ export default function Payprocess() {
       {toggleContainer === true && toggleContainerType === 'update' && (
         <Container maxWidth="xl">
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
               Update Payprocess
             </Typography>
             <Button

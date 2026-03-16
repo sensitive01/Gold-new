@@ -262,7 +262,7 @@ export default function Branch() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Branch
           </Typography>
           <Button
@@ -407,7 +407,7 @@ export default function Branch() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'create' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Create Branch
           </Typography>
           <Button
@@ -429,7 +429,7 @@ export default function Branch() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'update' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Update Branch
           </Typography>
           <Button

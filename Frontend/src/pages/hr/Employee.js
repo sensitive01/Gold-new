@@ -248,7 +248,7 @@ export default function Employee() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Employee
           </Typography>
           <Button
@@ -383,7 +383,7 @@ export default function Employee() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'create' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Create Employee
           </Typography>
           <Button
@@ -405,7 +405,7 @@ export default function Employee() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'update' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Update Employee
           </Typography>
           <Button

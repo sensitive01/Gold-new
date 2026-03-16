@@ -1,7 +1,6 @@
 import { filter } from 'lodash';
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
-// @mui
 import {
     Backdrop,
     Box,
@@ -102,23 +101,26 @@ export default function Attendance() {
     severity: 'success',
   });
 
+  const fetchData = useCallback(
+    (
+      query = {
+        createdAt: {
+          $gte: moment()?.format("YYYY-MM-DD"),
+          $lte: moment()?.format("YYYY-MM-DD"),
+        },
+      }
+    ) => {
+      getAttendance(query).then((data) => {
+        setData(data.data);
+        setOpenBackdrop(false);
+      });
+    },
+    []
+  );
+
   useEffect(() => {
     fetchData();
-  }, [toggleContainer]);
-
-  const fetchData = (
-    query = {
-      createdAt: {
-        $gte: moment()?.format("YYYY-MM-DD"),
-        $lte: moment()?.format("YYYY-MM-DD"),
-      },
-    }
-  ) => {
-    getAttendance(query).then((data) => {
-      setData(data.data);
-      setOpenBackdrop(false);
-    });
-  };
+  }, [fetchData, toggleContainer]);
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -245,7 +247,7 @@ export default function Attendance() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Attendance
           </Typography>
           <Button
@@ -385,7 +387,7 @@ export default function Attendance() {
       {toggleContainer === true && toggleContainerType === 'create' && (
         <Container maxWidth="xl">
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
               Create Attendance
             </Typography>
             <Button

@@ -325,7 +325,7 @@ export default function Support() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Support
           </Typography>
           <Button
@@ -337,7 +337,7 @@ export default function Support() {
           </Button>
         </Stack>
 
-        <p>
+        <p style={{ color: '#fff' }}>
           From Date: {values.fromDate ? moment(values.fromDate).format('YYYY-MM-DD') : ''}, To Date:{' '}
           {values.toDate ? moment(values.toDate).format('YYYY-MM-DD') : ''}
         </p>
@@ -461,7 +461,7 @@ export default function Support() {
           sx={{ display: toggleContainer === true && toggleContainerType === 'reply' ? 'block' : 'none' }}
         >
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
               Support Reply
             </Typography>
             <Button

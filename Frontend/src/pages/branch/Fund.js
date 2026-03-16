@@ -263,7 +263,7 @@ export default function Fund() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Fund
           </Typography>
           <Button
@@ -405,7 +405,7 @@ export default function Fund() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'create' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Create Fund
           </Typography>
           <Button
@@ -427,7 +427,7 @@ export default function Fund() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'update' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Update Fund
           </Typography>
           <Button

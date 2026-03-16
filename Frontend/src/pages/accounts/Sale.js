@@ -359,7 +359,7 @@ export default function Sale() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Sale
           </Typography>
           <Stack direction="row" alignItems="center" justifyContent="space-between" gap={2}>
@@ -396,7 +396,7 @@ export default function Sale() {
           </Stack>
         </Stack>
 
-        <p>
+        <p style={{ color: '#fff' }}>
           From Date: {values.fromDate ? moment(values.fromDate).format('YYYY-MM-DD') : ''}, To Date:{' '}
           {values.toDate ? moment(values.toDate).format('YYYY-MM-DD') : ''}, Branch:{' '}
           {branches.find((e) => e._id === values.branch)?.branchName}, Phone Number: {values.phoneNumber}
@@ -534,7 +534,7 @@ export default function Sale() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'print' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Invoice
           </Typography>
           <Button
@@ -556,7 +556,7 @@ export default function Sale() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'detail' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Sale Details
           </Typography>
           <Button

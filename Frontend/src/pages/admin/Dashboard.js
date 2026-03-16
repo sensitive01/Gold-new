@@ -27,7 +27,7 @@ export default function DashboardAppPage() {
       </Helmet>
 
       <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ mb: 5 }}>
+        <Typography variant="h4" sx={{ mb: 5, color: '#fff' }}>
           Hi, Welcome back
         </Typography>
 
@@ -37,9 +37,9 @@ export default function DashboardAppPage() {
               title="Today's gold rate"
               total={count?.todayGoldRate}
               icon={'mdi:gold'}
-              bgColor="#8A1B9F"
-              iconColor="#FFD700"
-              textColor="#fff"
+              bgColor="#fff"
+              iconColor="#8A1B9F"
+              textColor="#000"
             />
           </Grid>
 
@@ -59,9 +59,9 @@ export default function DashboardAppPage() {
               title="Today's bills"
               total={count?.todayBills}
               icon={'mdi:file-document-edit'}
-              bgColor="#8A1B9F"
-              iconColor="#FFD700"
-              textColor="#fff"
+              bgColor="#fff"
+              iconColor="#8A1B9F"
+              textColor="#000"
             />
           </Grid>
 
@@ -81,9 +81,9 @@ export default function DashboardAppPage() {
               title="Today's pledge bills"
               total={count?.todayPledgeBills}
               icon={'mdi:handshake'}
-              bgColor="#8A1B9F"
-              iconColor="#FFD700"
-              textColor="#fff"
+              bgColor="#fff"
+              iconColor="#8A1B9F"
+              textColor="#000"
             />
           </Grid>
 
@@ -103,9 +103,9 @@ export default function DashboardAppPage() {
               title="Total net amount"
               total={count?.totalNetAmount}
               icon={'mdi:cash-multiple'}
-              bgColor="#8A1B9F"
-              iconColor="#FFD700"
-              textColor="#fff"
+              bgColor="#fff"
+              iconColor="#8A1B9F"
+              textColor="#000"
             />
           </Grid>
 

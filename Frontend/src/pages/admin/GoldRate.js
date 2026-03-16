@@ -297,7 +297,7 @@ export default function GoldRate() {
 
       <Container maxWidth="xl" sx={{ display: toggleContainer === true ? 'none' : 'block' }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Gold Rate
           </Typography>
           <Stack direction="row" alignItems="center" justifyContent="space-between" gap={2}>
@@ -321,7 +321,7 @@ export default function GoldRate() {
           </Stack>
         </Stack>
 
-        <p>
+        <p style={{ color: '#fff' }}>
           From Date: {values.fromDate ? moment(values.fromDate).format('YYYY-MM-DD') : ''}, To Date:{' '}
           {values.toDate ? moment(values.toDate).format('YYYY-MM-DD') : ''}
         </p>
@@ -442,7 +442,7 @@ export default function GoldRate() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'create' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Create Gold Rate
           </Typography>
           <Button
@@ -464,7 +464,7 @@ export default function GoldRate() {
         sx={{ display: toggleContainer === true && toggleContainerType === 'update' ? 'block' : 'none' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
             Update Gold Rate
           </Typography>
           <Button

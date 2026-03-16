@@ -23,6 +23,14 @@ export default function Button(theme) {
         },
         containedPrimary: {
           boxShadow: theme.customShadows.primary,
+          backgroundColor: '#FFC107',
+          color: theme.palette.primary.main,
+          '&:hover': {
+            backgroundColor: '#FFB300',
+          },
+          '& .MuiSvgIcon-root, & .iconify': {
+            color: theme.palette.primary.main,
+          },
         },
         containedSecondary: {
           boxShadow: theme.customShadows.secondary,
